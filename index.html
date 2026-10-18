@@ -3,110 +3,175 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сайты и Чат-боты, которые приносят деньги</title>
+  <title>Сайты и Чат-боты • Автономные системы продаж</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    
     :root {
-      --bg: #FAFBFC;
-      --surface: #FFFFFF;
-      --text-primary: #0A0E27;
-      --text-secondary: #5A6474;
-      --line: rgba(10, 14, 39, 0.08);
-      --accent: #6366F1;
-      --accent2: #EC4899;
-      --accent-gradient: linear-gradient(135deg, #6366F1 0%, #EC4899 100%);
-      --accent-glow: rgba(99, 102, 241, 0.12);
-      --radius: 24px;
+      --bg-deep: #050510;
+      --bg-mid: #0a0a1f;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface-hover: rgba(255, 255, 255, 0.06);
+      --text-primary: #e8eaf6;
+      --text-secondary: #8b8fa3;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #00f5ff;
+      --accent-purple: #b44aff;
+      --accent-pink: #ff2d95;
+      --accent-gradient: linear-gradient(135deg, #00f5ff 0%, #b44aff 50%, #ff2d95 100%);
+      --glow-cyan: 0 0 30px rgba(0, 245, 255, 0.4);
+      --glow-purple: 0 0 30px rgba(180, 74, 255, 0.4);
+      --radius: 20px;
       --max: 1200px;
     }
+    
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html { scroll-behavior: smooth; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg-deep);
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
+    
+    /* Анимированный космический фон */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 50%, rgba(180, 74, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 45, 149, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+      animation: bgShift 20s ease-in-out infinite;
+    }
+    
+    @keyframes bgShift {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.1) rotate(2deg); }
+    }
+    
+    /* Звёзды */
+    .stars {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .star {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-    /* Nav */
+    /* Навигация */
     .nav {
-      position: sticky; top: 0; z-index: 50;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       backdrop-filter: blur(20px);
-      background: rgba(250, 251, 252, 0.9);
+      background: rgba(5, 5, 16, 0.7);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
-    .brand { font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 12px; letter-spacing: -0.02em; }
+    .brand { font-weight: 700; font-size: 20px; display: flex; align-items: center; gap: 12px; letter-spacing: -0.02em; }
     .logo-dot {
       width: 12px; height: 12px; border-radius: 50%;
       background: var(--accent-gradient);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-      animation: pulse 2s infinite;
+      box-shadow: var(--glow-cyan);
+      animation: pulse 2s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.8; }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 245, 255, 0.4); }
+      50% { transform: scale(1.3); box-shadow: 0 0 40px rgba(180, 74, 255, 0.6); }
     }
     .nav-links { display: flex; gap: 32px; }
-    .nav-links a { color: var(--text-secondary); font-weight: 600; font-size: 15px; transition: 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a { color: var(--text-secondary); font-weight: 500; font-size: 15px; transition: 0.3s; position: relative; }
+    .nav-links a::after {
+      content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--accent-gradient); transition: 0.3s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:hover::after { width: 100%; }
 
-    /* Buttons */
+    /* Кнопки */
     .btn {
-      border: 2px solid var(--line); background: var(--surface);
-      color: var(--text-primary); padding: 16px 28px; border-radius: 16px;
-      font-weight: 700; cursor: pointer; transition: all 0.3s;
-      display: inline-flex; align-items: center; gap: 10px; font-size: 16px;
+      border: 1px solid var(--line); background: var(--surface);
+      color: var(--text-primary); padding: 14px 28px; border-radius: 14px;
+      font-weight: 600; cursor: pointer; transition: all 0.3s;
+      display: inline-flex; align-items: center; gap: 10px; font-size: 15px;
+      font-family: inherit; position: relative; overflow: hidden;
     }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .btn::before {
+      content: ""; position: absolute; inset: 0;
+      background: var(--accent-gradient); opacity: 0; transition: 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: transparent; }
+    .btn:hover::before { opacity: 1; }
+    .btn span { position: relative; z-index: 1; }
     .btn-primary {
-      background: var(--accent-gradient); border: none; color: white;
-      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+      background: var(--accent-gradient); border: none;
+      box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
     }
-    .btn-primary:hover { box-shadow: 0 12px 40px rgba(99, 102, 241, 0.4); }
-    .btn-ghost { background: transparent; border-color: var(--line); color: var(--text-secondary); }
+    .btn-primary:hover { box-shadow: 0 0 50px rgba(180, 74, 255, 0.5); }
+    .btn-ghost { background: transparent; }
 
-    /* Hero */
-    .hero { padding: 100px 0 80px; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ""; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: ""; position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(236, 72, 153, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-grid { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    /* HERO */
+    .hero { padding: 140px 0 100px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 60px; align-items: center; }
     @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
     
     .kicker {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 10px 20px; border-radius: 99px;
-      border: 1px solid var(--line); background: var(--surface);
-      color: var(--accent); font-weight: 700; font-size: 14px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0, 245, 255, 0.3); background: rgba(0, 245, 255, 0.05);
+      color: var(--accent-cyan); font-weight: 600; font-size: 13px;
+      font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
     }
-    h1 { margin: 28px 0 24px; font-size: 56px; line-height: 1.05; letter-spacing: -0.04em; font-weight: 800; }
+    h1 { margin: 28px 0 24px; font-size: 58px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 700; }
+    h1 .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     @media (max-width: 600px) { h1 { font-size: 38px; } }
-    .lead { margin: 0; color: var(--text-secondary); font-size: 20px; line-height: 1.7; max-width: 58ch; }
+    .lead { margin: 0; color: var(--text-secondary); font-size: 19px; line-height: 1.7; max-width: 58ch; }
     .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 36px; }
     
-    /* Cards */
+    /* Карточки */
     .card {
       border: 1px solid var(--line); background: var(--surface);
-      border-radius: var(--radius); padding: 36px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.03);
-      transition: 0.3s;
+      border-radius: var(--radius); padding: 32px;
+      backdrop-filter: blur(10px);
+      transition: 0.4s; position: relative; overflow: hidden;
     }
-    .card:hover { box-shadow: 0 12px 48px rgba(0,0,0,0.08); border-color: rgba(99, 102, 241, 0.2); }
+    .card::before {
+      content: ""; position: absolute; inset: 0;
+      background: var(--accent-gradient); opacity: 0; transition: 0.4s;
+    }
+    .card:hover { border-color: rgba(0, 245, 255, 0.3); transform: translateY(-4px); }
+    .card:hover::before { opacity: 0.05; }
+    .card > * { position: relative; z-index: 1; }
     
-    section { padding: 100px 0; }
+    section { padding: 100px 0; position: relative; }
     .section-title { margin-bottom: 48px; max-width: 700px; }
-    .section-title h2 { margin: 0 0 20px; font-size: 40px; letter-spacing: -0.03em; font-weight: 800; }
-    .section-title p { margin: 0; color: var(--text-secondary); font-size: 19px; line-height: 1.6; }
+    .section-title h2 { margin: 0 0 20px; font-size: 42px; letter-spacing: -0.03em; font-weight: 700; }
+    .section-title p { margin: 0; color: var(--text-secondary); font-size: 18px; line-height: 1.6; }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     @media (max-width: 850px) { .grid-2 { grid-template-columns: 1fr; } }
@@ -114,17 +179,20 @@
     .case-card h3 { margin: 0 0 20px; font-size: 24px; font-weight: 700; }
     .pill {
       display: inline-block; padding: 8px 16px; border-radius: 99px;
-      background: var(--accent-glow); border: 1px solid rgba(99, 102, 241, 0.2);
-      font-weight: 700; color: var(--accent); font-size: 13px; margin-bottom: 20px;
+      background: rgba(180, 74, 255, 0.1); border: 1px solid rgba(180, 74, 255, 0.3);
+      font-weight: 600; color: var(--accent-purple); font-size: 13px; margin-bottom: 20px;
+      font-family: 'JetBrains Mono', monospace;
     }
     .list { padding-left: 24px; margin: 20px 0 0; color: var(--text-secondary); }
     .list li { margin: 14px 0; line-height: 1.6; }
 
     .service-item {
       padding: 32px; border-radius: 20px; border: 1px solid var(--line);
-      background: var(--bg); margin-top: 24px; position: relative; overflow: hidden;
+      background: var(--surface); margin-top: 24px; position: relative; overflow: hidden;
+      transition: 0.3s;
     }
     .service-item:first-child { margin-top: 0; }
+    .service-item:hover { border-color: rgba(0, 245, 255, 0.3); }
     .service-item::before {
       content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
       background: var(--accent-gradient);
@@ -132,80 +200,132 @@
     .service-item h4 { margin: 0 0 12px; font-size: 22px; font-weight: 700; }
     .service-item p { margin: 0; color: var(--text-secondary); font-size: 16px; line-height: 1.6; }
 
-    /* Chat Widget */
+    /* ЧАТ */
     .chat-container { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 36px; align-items: start; }
     @media (max-width: 900px) { .chat-container { grid-template-columns: 1fr; } }
     .chat {
       height: 560px; display: flex; flex-direction: column;
       border: 1px solid var(--line); border-radius: var(--radius);
-      background: var(--surface); overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      background: rgba(10, 10, 31, 0.6); overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 60px rgba(0, 245, 255, 0.1);
     }
     .chat-header {
       padding: 24px 28px; border-bottom: 1px solid var(--line);
       display: flex; justify-content: space-between; align-items: center;
-      font-weight: 700; font-size: 17px; background: rgba(250, 251, 252, 0.5);
+      font-weight: 600; font-size: 16px; background: rgba(0, 0, 0, 0.3);
     }
-    .chat-body { padding: 28px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto; flex: 1; background: var(--bg); }
+    .chat-body { padding: 28px; display: flex; flex-direction: column; gap: 18px; overflow-y: auto; flex: 1; }
     .bubble {
       max-width: 85%; padding: 18px 22px; border-radius: 20px;
       border: 1px solid var(--line); background: var(--surface);
-      color: var(--text-primary); font-size: 16px; line-height: 1.5; white-space: pre-wrap;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      color: var(--text-primary); font-size: 15px; line-height: 1.5; white-space: pre-wrap;
+      backdrop-filter: blur(10px);
     }
     .bubble.me {
       margin-left: auto; background: var(--accent-gradient); color: white;
-      border: none; box-shadow: 0 4px 16px rgba(99, 102, 241, 0.25);
+      border: none; box-shadow: 0 4px 20px rgba(180, 74, 255, 0.3);
     }
     .chat-footer {
       border-top: 1px solid var(--line); padding: 24px 28px;
-      display: flex; gap: 14px; background: var(--surface);
+      display: flex; gap: 14px; background: rgba(0, 0, 0, 0.3);
     }
     
-    /* Forms */
+    /* Формы */
     input, textarea, select {
-      width: 100%; border-radius: 16px; border: 2px solid var(--line);
-      background: var(--surface); padding: 18px 20px;
-      color: var(--text-primary); outline: none; font-size: 16px; font-family: inherit;
-      transition: 0.2s;
+      width: 100%; border-radius: 14px; border: 1px solid var(--line);
+      background: var(--surface); padding: 16px 20px;
+      color: var(--text-primary); outline: none; font-size: 15px; font-family: inherit;
+      transition: 0.3s; backdrop-filter: blur(10px);
     }
-    input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow); }
-    textarea { min-height: 130px; resize: vertical; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(0, 245, 255, 0.2); }
+    textarea { min-height: 120px; resize: vertical; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
     @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
-    label { display: block; color: var(--text-primary); font-weight: 700; margin: 0 0 12px; font-size: 15px; }
+    label { display: block; color: var(--text-secondary); font-weight: 600; margin: 0 0 10px; font-size: 14px; }
     .field { margin-bottom: 28px; }
 
     /* Footer */
     .footer {
       border-top: 1px solid var(--line); padding: 60px 0; margin-top: 60px;
-      color: var(--text-secondary); font-size: 15px; text-align: center; background: var(--surface);
+      color: var(--text-secondary); font-size: 14px; text-align: center; background: rgba(0, 0, 0, 0.3);
     }
     .footer a { color: var(--text-primary); font-weight: 600; }
-    .footer a:hover { color: var(--accent); }
+    .footer a:hover { color: var(--accent-cyan); }
     .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; }
 
     /* Popup */
     .popup {
-      position: fixed; inset: 0; background: rgba(10, 14, 39, 0.6);
-      display: none; align-items: center; justify-content: center; z-index: 100; padding: 24px;
-      backdrop-filter: blur(8px);
+      position: fixed; inset: 0; background: rgba(5, 5, 16, 0.8);
+      display: none; align-items: center; justify-content: center; z-index: 200; padding: 24px;
+      backdrop-filter: blur(12px);
     }
     .popup.show { display: flex; }
     .popup-card {
       width: min(520px, 100%); border-radius: 28px;
-      border: 1px solid var(--line); background: var(--surface);
-      padding: 40px; text-align: center; box-shadow: 0 24px 80px rgba(0,0,0,0.15);
+      border: 1px solid rgba(0, 245, 255, 0.3); background: rgba(10, 10, 31, 0.9);
+      padding: 40px; text-align: center; box-shadow: 0 0 80px rgba(0, 245, 255, 0.2);
+      backdrop-filter: blur(20px);
     }
-    .popup-card h3 { margin: 0 0 16px; font-size: 28px; font-weight: 800; }
-    .popup-card p { margin: 0 0 28px; color: var(--text-secondary); line-height: 1.6; font-size: 17px; }
+    .popup-card h3 { margin: 0 0 16px; font-size: 28px; font-weight: 700; }
+    .popup-card p { margin: 0 0 28px; color: var(--text-secondary); line-height: 1.6; font-size: 16px; }
     .popup-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    
+
+    /* АНИМАЦИЯ ТРОПИНКИ */
+    .path-container {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .path-line {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, 
+        transparent 0%, 
+        var(--accent-cyan) 20%, 
+        var(--accent-purple) 50%, 
+        var(--accent-pink) 80%, 
+        transparent 100%);
+      opacity: 0.3;
+      animation: pathGlow 3s ease-in-out infinite;
+    }
+    @keyframes pathGlow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.5; }
+    }
+    .path-node {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+      animation: nodePulse 2s ease-in-out infinite;
+    }
+    @keyframes nodePulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.3); }
+    }
+
+    @media (max-width: 900px) {
+      .path-container { display: none; }
+    }
+
     .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
+  <!-- Звёзды -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Навигация -->
   <header class="nav">
     <div class="wrap nav-inner">
       <div class="brand">
@@ -218,7 +338,7 @@
         <a href="#case">Кейс</a>
         <a href="#bot">Диагностика</a>
       </nav>
-      <a class="btn btn-primary" href="#bot">Получить решение</a>
+      <a class="btn btn-primary" href="#bot"><span>Получить решение</span></a>
     </div>
   </header>
 
@@ -227,39 +347,39 @@
     <div class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="kicker">⚡ Сайты и чат-боты под ключ</div>
-          <h1>Ваш сайт не продаёт? Бот не работает? Исправим за 14 дней</h1>
+          <div class="kicker">⚡ АВТОНОМНЫЕ СИСТЕМЫ ПРОДАЖ</div>
+          <h1>Ваш сайт не продаёт? <span class="gradient-text">Исправим за 14 дней</span></h1>
           <p class="lead">
-            Вы теряете клиентов каждый день, пока ваш сайт просто «висит» в интернете, а конкуренты забирают их себе. Мы создаём сайты и чат-боты, которые автоматически квалифицируют лидов и приносят заявки в Telegram.
+            Вы теряете клиентов каждый день, пока ваш сайт просто «висит» в интернете. Мы создаём сайты и чат-боты, которые автоматически квалифицируют лидов и приносят заявки в Telegram 24/7.
           </p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#bot">Пройти диагностику (7 вопросов)</a>
-            <a class="btn btn-ghost" href="#case">Смотреть кейс PhotoBoostMP</a>
+            <a class="btn btn-primary" href="#bot"><span>Пройти диагностику (7 вопросов)</span></a>
+            <a class="btn btn-ghost" href="#case"><span>Смотреть кейс</span></a>
           </div>
         </div>
 
         <div class="card">
           <div style="display:flex; flex-direction:column; gap:20px;">
-            <div style="width:100%; aspect-ratio:1/1; border-radius:20px; background: var(--accent-gradient); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <div style="width:100%; aspect-ratio:1/1; border-radius:20px; background: var(--accent-gradient); display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow: 0 0 60px rgba(180, 74, 255, 0.3);">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Кристина" style="width:100%; height:100%; object-fit:cover; opacity: 0.95;">
             </div>
             <div>
-              <div style="font-weight:800; font-size:20px; margin-bottom:8px;">Кристина</div>
-              <div style="color:var(--text-secondary); font-size:16px; line-height:1.6;">
+              <div style="font-weight:700; font-size:20px; margin-bottom:8px;">Кристина</div>
+              <div style="color:var(--text-secondary); font-size:15px; line-height:1.6;">
                 10 лет создаю сайты и ботов, которые приносят деньги. Не «красивые картинки», а работающие системы.
               </div>
             </div>
-            <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="justify-content:center;">Telegram-канал →</a>
+            <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="justify-content:center;"><span>Telegram-канал →</span></a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PROBLEMS -->
+    <!-- ПРОБЛЕМЫ -->
     <section id="problems">
       <div class="wrap">
         <div class="section-title">
-          <h2>Почему ваш бизнес теряет клиентов</h2>
+          <h2>Почему ваш бизнес <span class="gradient-text">теряет клиентов</span></h2>
           <p>Если вы узнаёте хотя бы одну из этих проблем — вам нужно решение, а не ещё один «красивый сайт»</p>
         </div>
 
@@ -267,86 +387,86 @@
           <div class="card">
             <h3 style="margin:0 0 16px; font-size:22px;">🔴 Сайт есть, заявок нет</h3>
             <p style="color:var(--text-secondary); line-height:1.7;">
-              Вы потратили деньги на разработку, но телефон молчит. Посетители заходят и уходят, не оставив даже контакт. Проблема не в трафике — проблема в том, что сайт не продаёт.
+              Вы потратили деньги на разработку, но телефон молчит. Посетители заходят и уходят. Проблема не в трафике — проблема в том, что сайт не продаёт.
             </p>
           </div>
 
           <div class="card">
             <h3 style="margin:0 0 16px; font-size:22px;">🔴 Бот не работает или бесит</h3>
             <p style="color:var(--text-secondary); line-height:1.7;">
-              Чат-бот, который вы заказали полгода назад, либо сломался, либо отвечает шаблонными фразами. Клиенты злятся и уходят к конкурентам, которые отвечают мгновенно.
+              Чат-бот отвечает шаблонными фразами. Клиенты злятся и уходят к конкурентам, которые отвечают мгновенно и по делу.
             </p>
           </div>
 
           <div class="card">
             <h3 style="margin:0 0 16px; font-size:22px;">🔴 Ручная обработка заявок</h3>
             <p style="color:var(--text-secondary); line-height:1.7;">
-              Вы тратите часы на ответы в Direct, WhatsApp и Telegram. Отвечаете не сразу — клиент уже ушёл. Нужна система, которая квалифицирует лидов 24/7 без вашего участия.
+              Вы тратите часы на ответы в Direct и WhatsApp. Отвечаете не сразу — клиент уже ушёл. Нужна система, которая работает 24/7.
             </p>
           </div>
 
           <div class="card">
             <h3 style="margin:0 0 16px; font-size:22px;">🔴 Конкуренты забирают клиентов</h3>
             <p style="color:var(--text-secondary); line-height:1.7;">
-              Пока вы думаете «может, потом», конкуренты уже внедрили бота, который автоматически записывает на консультацию и отправляет вам готовых клиентов в Telegram.
+              Пока вы думаете «может, потом», конкуренты уже внедрили бота, который автоматически записывает на консультацию и отправляет вам готовых клиентов.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOLUTIONS -->
-    <section id="solutions" style="background: var(--surface);">
+    <!-- РЕШЕНИЯ -->
+    <section id="solutions">
       <div class="wrap">
         <div class="section-title">
-          <h2>Решение: Сайт + Чат-бот = Автономная система продаж</h2>
+          <h2>Решение: <span class="gradient-text">Сайт + Чат-бот</span></h2>
           <p>Мы создаём не просто «сайт» или «бота». Мы создаём систему, которая работает на вас 24/7</p>
         </div>
 
         <div class="card">
           <div class="service-item">
             <h4>🌐 Сайт под конверсию</h4>
-            <p>Не «красивая визитка», а продающий инструмент. Структура, которая ведёт посетителя к заявке. Офферы, которые бьют в боль. Формы, которые заполняют. Результат: рост конверсии в 2-3 раза.</p>
+            <p>Не «красивая визитка», а продающий инструмент. Структура, которая ведёт посетителя к заявке. Офферы, которые бьют в боль. Результат: рост конверсии в 2-3 раза.</p>
           </div>
           <div class="service-item">
-            <h4>🤖 Чат-бот для квалификации</h4>
-            <p>Бот, который задаёт правильные вопросы, определяет готовность клиента платить и отправляет вам в Telegram только горячих лидов. Никакого спама и «смотрителей».</p>
+            <h4> Чат-бот для квалификации</h4>
+            <p>Бот, который задаёт правильные вопросы, определяет готовность клиента платить и отправляет вам в Telegram только горячих лидов. Никакого спама.</p>
           </div>
           <div class="service-item">
-            <h4> AI-агент для автоматизации</h4>
-            <p>Умный бот, который не просто отвечает на вопросы, а анализирует ситуацию клиента, предлагает решение и записывает на консультацию. Работает как ваш лучший менеджер, только 24/7.</p>
+            <h4>🧠 AI-агент для автоматизации</h4>
+            <p>Умный бот, который анализирует ситуацию клиента, предлагает решение и записывает на консультацию. Работает как ваш лучший менеджер, только 24/7.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CASE -->
+    <!-- КЕЙС -->
     <section id="case">
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Реальный результат: PhotoBoostMP</h2>
+            <h2>Реальный результат: <span class="gradient-text">PhotoBoostMP</span></h2>
             <p>Как мы автоматизировали проверку карточек для маркетплейсов и создали систему, которая продаёт сама</p>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="card case-card">
-            <span class="pill">E-com автоматизация</span>
+            <span class="pill">E-COM АВТОМАТИЗАЦИЯ</span>
             <h3>Что было сделано</h3>
             <ul class="list">
               <li>Разработан сайт с понятным оффером для селлеров маркетплейсов</li>
               <li>Внедрён чат-бот, который автоматически проверяет карточки товаров</li>
-              <li>Создана система мгновенных уведомлений в Telegram с результатами анализа</li>
-              <li>Клиент получает не «мнение», а измеримый план действий</li>
+              <li>Создана система мгновенных уведомлений в Telegram</li>
+              <li>Клиент получает измеримый план действий</li>
             </ul>
-            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" style="margin-top:24px;">Открыть проект ↗</a>
+            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" style="margin-top:24px;"><span>Открыть проект </span></a>
           </div>
 
           <div class="card case-card">
             <h3>Результат для клиента</h3>
             <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:20px;">
-              Вместо ручной проверки сотен карточек — автоматическая система, которая работает 24/7. Клиенты получают мгновенный анализ, вы получаете готовых лидов в Telegram.
+              Вместо ручной проверки сотен карточек — автоматическая система, которая работает 24/7. Клиенты получают мгновенный анализ, вы получаете готовых лидов.
             </p>
             <ul class="list">
               <li>Автоматизация рутинной работы</li>
@@ -359,33 +479,31 @@
       </div>
     </section>
 
-    <!-- BOT -->
-    <section id="bot" style="background: var(--surface);">
+    <!-- ДИАГНОСТИКА -->
+    <section id="bot">
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Диагностика вашей ситуации</h2>
+            <h2>Диагностика вашей <span class="gradient-text">ситуации</span></h2>
             <p>Ответьте на 7 вопросов — мы определим, какое решение вам нужно, и отправим персональные рекомендации в Telegram</p>
           </div>
         </div>
 
         <div class="chat-container">
-          <!-- Chat -->
           <div class="chat">
             <div class="chat-header">
               <span>🤖 AI-ассистент</span>
-              <span style="color:var(--text-secondary); font-weight:600; font-size:14px;" id="chatStepLabel">Шаг 1/7</span>
+              <span style="color:var(--text-secondary); font-weight:600; font-size:14px; font-family: 'JetBrains Mono', monospace;" id="chatStepLabel">Шаг 1/7</span>
             </div>
             <div class="chat-body" id="chatBody"></div>
             <div class="chat-footer">
               <form id="chatForm" style="display:flex; gap:14px; width:100%;">
                 <input id="chatInput" type="text" autocomplete="off" placeholder="Введите ваш ответ..." required style="margin:0;" />
-                <button class="btn btn-primary" type="submit" style="padding:16px 28px;">→</button>
+                <button class="btn btn-primary" type="submit" style="padding:16px 28px;"><span>→</span></button>
               </form>
             </div>
           </div>
 
-          <!-- Info -->
           <div class="card">
             <h3 style="margin:0 0 20px; font-size:24px;">Как это работает?</h3>
             <ul class="list" style="margin:0;">
@@ -395,20 +513,20 @@
               <li>Вы получаете конкретное предложение, а не «давайте обсудим»</li>
             </ul>
             <div style="margin-top:28px; padding-top:28px; border-top:1px solid var(--line);">
-              <p style="color:var(--text-secondary); margin:0 0 20px; font-size:16px;">Не хотите чат? <a href="#form" style="color:var(--accent); font-weight:700; text-decoration:underline;">Заполните форму ниже ↓</a></p>
-              <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="width:100%; justify-content:center;">Читать Telegram-канал</a>
+              <p style="color:var(--text-secondary); margin:0 0 20px; font-size:15px;">Не хотите чат? <a href="#form" style="color:var(--accent-cyan); font-weight:600; text-decoration:underline;">Заполните форму ниже ↓</a></p>
+              <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="width:100%; justify-content:center;"><span>Читать Telegram-канал</span></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FORM -->
+    <!-- ФОРМА -->
     <section id="form">
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Классическая форма заявки</h2>
+            <h2>Классическая <span class="gradient-text">форма заявки</span></h2>
             <p>Если не хотите проходить диагностику — просто заполните форму. Мы свяжемся с вами в течение часа.</p>
           </div>
         </div>
@@ -449,7 +567,7 @@
               <textarea id="c_message" required placeholder="Например: сайт есть, но заявок нет. Или: нужен бот для автоматической записи клиентов. Ссылка: https://..."></textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center; padding:18px;">Отправить заявку</button>
+            <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center; padding:18px;"><span>Отправить заявку</span></button>
           </form>
         </div>
       </div>
@@ -468,7 +586,7 @@
         <a href="#bot">Диагностика</a>
       </div>
       <div>© 2026 Сайты и Чат-боты под ключ. Все права защищены.</div>
-      <div style="margin-top:12px; font-size:14px; opacity:0.7;">Создаём системы, которые приносят деньги, а не просто «существуют».</div>
+      <div style="margin-top:12px; font-size:13px; opacity:0.6;">Создаём системы, которые приносят деньги, а не просто «существуют».</div>
     </div>
   </footer>
 
@@ -478,46 +596,54 @@
       <h3>✅ Заявка отправлена!</h3>
       <p>Я получила уведомление в Telegram. Изучу вашу ситуацию и свяжусь с вами в течение часа с конкретным предложением.</p>
       <div class="popup-actions">
-        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank">Подписаться на канал</a>
-        <button class="btn btn-ghost" type="button" onclick="closePopup()">Закрыть</button>
+        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank"><span>Подписаться на канал</span></a>
+        <button class="btn btn-ghost" type="button" onclick="closePopup()"><span>Закрыть</span></button>
       </div>
     </div>
   </div>
 
   <script>
+    // Генерация звёзд
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      starsContainer.appendChild(star);
+    }
+
     // Telegram данные
     const BOT_TOKEN = "8788227838:AAHxvmXEQ6C2rKfhl0e1cgdl1sn1eUUfAUk";
     const CHAT_ID = "6300678737";
 
-    // Функция отправки в Telegram через несколько прокси с fallback
+    // ОТПРАВКА В TELEGRAM ЧЕРЕЗ FORMDATA (обходит CORS)
     async function sendToTelegram(text) {
       const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-      const payload = JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" });
       
-      // Пробуем несколько прокси
-      const proxies = [
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(telegramUrl)}`,
-        `https://corsproxy.io/?${encodeURIComponent(telegramUrl)}`,
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(telegramUrl)}`
-      ];
+      // Используем FormData вместо JSON — это простой запрос, не preflight
+      const formData = new FormData();
+      formData.append('chat_id', CHAT_ID);
+      formData.append('text', text);
+      formData.append('parse_mode', 'HTML');
 
-      for (let proxy of proxies) {
-        try {
-          const response = await fetch(proxy, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: payload
-          });
-          if (response.ok) return true;
-        } catch (e) {
-          console.log(`Proxy failed: ${proxy}`, e);
-          continue;
-        }
+      try {
+        const response = await fetch(telegramUrl, {
+          method: "POST",
+          body: formData
+          // Без headers — браузер не делает preflight CORS запрос
+        });
+        const data = await response.json();
+        return data.ok;
+      } catch (e) {
+        console.error('Telegram send error:', e);
+        return false;
       }
-      return false;
     }
 
-    // --- ЧАТ-БОТ (7 вопросов) ---
+    // ЧАТ-БОТ (7 вопросов)
     const questions = [
       "Привет! Я помогу определить, какое решение вам нужно. Как к вам обращаться?",
       "Отлично! Какая у вас сейчас главная проблема? (Нет заявок с сайта, бот не работает, ручная обработка клиентов, конкуренты забирают клиентов?)",
@@ -559,7 +685,7 @@
         document.getElementById("chatInput").disabled = true;
         document.querySelector("#chatForm button").disabled = true;
 
-        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Проблема: ${answers[1]}\n Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n📱 Контакт: ${answers[6]}`;
+        const text = ` <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n Имя: ${answers[0]}\n Проблема: ${answers[1]}\n Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n Контакт: ${answers[6]}`;
         
         const success = await sendToTelegram(text);
         
@@ -579,14 +705,13 @@
       if (e.key === "Enter") nextStep(e);
     });
 
-    // Старт бота
     setTimeout(() => addMessage(questions[0]), 500);
 
-    // --- КЛАССИЧЕСКАЯ ФОРМА ---
+    // КЛАССИЧЕСКАЯ ФОРМА
     document.getElementById("classicForm").addEventListener("submit", async function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
-      btn.textContent = "Отправляю...";
+      btn.innerHTML = '<span>Отправляю...</span>';
       btn.disabled = true;
 
       const name = document.getElementById("c_name").value.trim();
@@ -605,7 +730,7 @@
       } else {
         alert("Не удалось отправить. Попробуйте ещё раз или напишите в Telegram @neiro_contents");
       }
-      btn.textContent = "Отправить заявку";
+      btn.innerHTML = '<span>Отправить заявку</span>';
       btn.disabled = false;
     });
 
