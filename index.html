@@ -2,30 +2,71 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Сайты и Чат-боты • Премиум решения</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- SEO: Основные мета-теги -->
+  <title>Сайты и чат-боты под ключ | Автономные системы продаж для бизнеса | Кристина Digital</title>
+  <meta name="description" content="Разработка продающих сайтов и чат-ботов для бизнеса. Автоматизация продаж, AI-агенты, квалификация лидов. Диагностика за 5000₽. Результаты за 14 дней. Telegram-уведомления." />
+  <meta name="keywords" content="создание сайтов, чат-боты для бизнеса, AI-агенты, автоматизация продаж, разработка ботов Telegram, сайты под конверсию, лидогенерация, воронки продаж, диагностика сайта, Кристина digital" />
+  <meta name="author" content="Кристина" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yoursite.com/" />
+  
+  <!-- Open Graph для соцсетей -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Сайты и чат-боты под ключ | Автономные системы продаж" />
+  <meta property="og:description" content="Разработка продающих сайтов и чат-ботов. Автоматизация, AI-агенты, квалификация лидов. Результаты за 14 дней." />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Кристина Digital" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Сайты и чат-боты под ключ" />
+  <meta name="twitter:description" content="Автономные системы продаж для бизнеса. Результаты за 14 дней." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23FFD700'/%3E%3C/svg%3E" />
+  
+  <!-- Schema.org разметка для поисковиков -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Кристина Digital — Сайты и чат-боты",
+    "description": "Разработка продающих сайтов, чат-ботов и AI-агентов для бизнеса. Автоматизация продаж и квалификация лидов.",
+    "url": "https://yoursite.com",
+    "telephone": "+7-000-000-00-00",
+    "priceRange": "5000-200000 RUB",
+    "serviceType": ["Web Development", "Chatbot Development", "AI Automation"],
+    "areaServed": "RU",
+    "offers": {
+      "@type": "Offer",
+      "name": "Диагностическая консультация",
+      "price": "5000",
+      "priceCurrency": "RUB"
+    }
+  }
+  </script>
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
     
     :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-tertiary: #1a1a25;
+      --bg-primary: #05050a;
+      --bg-secondary: #0d0d15;
+      --bg-tertiary: #15151f;
       --text-primary: #ffffff;
-      --text-secondary: #a0a0b0;
-      --text-muted: #6b6b7b;
+      --text-secondary: #a0a0b5;
+      --text-muted: #6b6b80;
       --gold: #FFD700;
       --gold-light: #FFED4E;
       --gold-dark: #D4AF37;
       --rose-gold: #B76E79;
-      --platinum: #E5E4E2;
       --accent-blue: #00D4FF;
       --accent-purple: #B44AFF;
       --gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFED4E 50%, #D4AF37 100%);
       --gradient-luxury: linear-gradient(135deg, #FFD700 0%, #B76E79 50%, #B44AFF 100%);
-      --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
       --shadow-gold: 0 0 60px rgba(255, 215, 0, 0.3);
-      --shadow-purple: 0 0 60px rgba(180, 74, 255, 0.3);
       --radius: 24px;
       --max: 1400px;
     }
@@ -41,10 +82,11 @@
       line-height: 1.6;
       overflow-x: hidden;
       position: relative;
+      min-height: 100vh;
     }
     
-    /* Анимированный фон с частицами */
-    .bg-animation {
+    /* ===== ДОРОГАЯ ФОНОВАЯ ПОДЛОЖКА ===== */
+    .bg-layer {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: 0;
@@ -52,66 +94,116 @@
       overflow: hidden;
     }
     
-    .bg-gradient {
+    /* Сетка с перспективой (как в киберпанке) */
+    .bg-grid {
       position: absolute;
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.15;
-      animation: float 20s ease-in-out infinite;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 215, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 215, 0, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
     }
     
-    .bg-gradient-1 {
-      top: -200px;
-      right: -200px;
+    @keyframes gridMove {
+      from { transform: translateY(0); }
+      to { transform: translateY(60px); }
+    }
+    
+    /* Светящиеся орбы */
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: orbFloat 25s ease-in-out infinite;
+    }
+    
+    .bg-orb-1 {
+      top: -10%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
       background: radial-gradient(circle, #FFD700 0%, transparent 70%);
       animation-delay: 0s;
     }
     
-    .bg-gradient-2 {
-      bottom: -300px;
-      left: -200px;
+    .bg-orb-2 {
+      bottom: -20%;
+      left: -10%;
+      width: 700px;
+      height: 700px;
       background: radial-gradient(circle, #B44AFF 0%, transparent 70%);
-      animation-delay: 5s;
+      animation-delay: 8s;
     }
     
-    .bg-gradient-3 {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .bg-orb-3 {
+      top: 40%;
+      left: 30%;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, #B76E79 0%, transparent 70%);
-      animation-delay: 10s;
+      animation-delay: 15s;
     }
     
-    @keyframes float {
+    @keyframes orbFloat {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(50px, -50px) scale(1.1); }
-      66% { transform: translate(-30px, 30px) scale(0.9); }
+      33% { transform: translate(80px, -60px) scale(1.1); }
+      66% { transform: translate(-50px, 50px) scale(0.95); }
     }
     
-    /* Частицы */
+    /* Частицы (звёзды) */
     .particle {
       position: absolute;
       width: 2px;
       height: 2px;
       background: var(--gold);
       border-radius: 50%;
+      box-shadow: 0 0 6px var(--gold);
       opacity: 0;
-      animation: particleFloat 15s linear infinite;
+      animation: particleFloat linear infinite;
     }
     
     @keyframes particleFloat {
       0% { opacity: 0; transform: translateY(100vh) scale(0); }
       10% { opacity: 1; }
       90% { opacity: 1; }
-      100% { opacity: 0; transform: translateY(-100vh) scale(1); }
+      100% { opacity: 0; transform: translateY(-100px) scale(1); }
+    }
+    
+    /* Соединяющие линии (нейронная сеть) */
+    .bg-lines {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+    }
+    
+    .bg-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      animation: lineMove 15s linear infinite;
+    }
+    
+    @keyframes lineMove {
+      0% { transform: translateX(-100%); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(100vw); opacity: 0; }
+    }
+    
+    /* Виньетка */
+    .bg-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(5, 5, 10, 0.8) 100%);
     }
     
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
 
-    /* Навигация */
+    /* ===== НАВИГАЦИЯ ===== */
     .nav {
       position: fixed;
       top: 0;
@@ -119,37 +211,37 @@
       right: 0;
       z-index: 100;
       backdrop-filter: blur(30px);
-      background: rgba(10, 10, 15, 0.8);
+      background: rgba(5, 5, 10, 0.7);
       border-bottom: 1px solid rgba(255, 215, 0, 0.1);
       transition: all 0.3s;
     }
     
     .nav.scrolled {
-      background: rgba(10, 10, 15, 0.95);
+      background: rgba(5, 5, 10, 0.95);
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     }
     
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
-    .brand { font-weight: 800; font-size: 22px; display: flex; align-items: center; gap: 14px; letter-spacing: -0.02em; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+    .brand { font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 12px; letter-spacing: -0.02em; }
     .logo-dot {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       background: var(--gradient-gold);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
       animation: pulse 2s ease-in-out infinite;
     }
     
     @keyframes pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
-      50% { transform: scale(1.3); box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+      50% { transform: scale(1.3); box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
     }
     
-    .nav-links { display: flex; gap: 40px; }
+    .nav-links { display: flex; gap: 32px; }
     .nav-links a { 
       color: var(--text-secondary); 
       font-weight: 500; 
-      font-size: 15px; 
+      font-size: 14px; 
       transition: 0.3s; 
       position: relative;
       padding: 8px 0;
@@ -166,26 +258,37 @@
     }
     .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { width: 100%; }
+    
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+    }
 
-    /* Кнопки */
+    /* ===== КНОПКИ ===== */
     .btn {
       border: 2px solid rgba(255, 215, 0, 0.3);
       background: transparent;
       color: var(--gold);
-      padding: 18px 36px;
-      border-radius: 16px;
+      padding: 16px 32px;
+      border-radius: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 16px;
+      gap: 10px;
+      font-size: 15px;
       font-family: inherit;
       position: relative;
       overflow: hidden;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      white-space: nowrap;
     }
     
     .btn::before {
@@ -225,9 +328,9 @@
       color: var(--text-primary);
     }
 
-    /* HERO */
+    /* ===== HERO ===== */
     .hero {
-      padding: 200px 0 140px;
+      padding: 160px 0 100px;
       position: relative;
       overflow: hidden;
     }
@@ -235,23 +338,22 @@
     .hero-grid { 
       display: grid; 
       grid-template-columns: 1fr 1fr; 
-      gap: 80px; 
+      gap: 60px; 
       align-items: center;
     }
     
-    @media (max-width: 1024px) { 
-      .hero-grid { grid-template-columns: 1fr; gap: 60px; } 
-    }
-    
-    .problem-box {
-      padding: 60px;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(183, 110, 121, 0.05) 100%);
-      border: 2px solid rgba(255, 215, 0, 0.2);
+    .problem-box, .solution-box {
+      padding: 48px;
       border-radius: var(--radius);
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(20px);
       transition: 0.4s;
+    }
+    
+    .problem-box {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(183, 110, 121, 0.05) 100%);
+      border: 2px solid rgba(255, 215, 0, 0.2);
     }
     
     .problem-box:hover {
@@ -267,7 +369,7 @@
       right: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
       animation: rotate 20s linear infinite;
     }
     
@@ -279,36 +381,30 @@
     .problem-box > * { position: relative; z-index: 1; }
     
     .problem-box .icon {
-      font-size: 48px;
-      margin-bottom: 24px;
+      font-size: 40px;
+      margin-bottom: 20px;
       display: block;
     }
     
     .problem-box h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 42px;
+      font-size: 36px;
       font-weight: 900;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.2;
       color: var(--text-primary);
     }
     
     .problem-box p {
       color: var(--text-secondary);
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.7;
     }
     
     .solution-box {
-      padding: 60px;
       background: linear-gradient(135deg, rgba(180, 74, 255, 0.08) 0%, rgba(255, 215, 0, 0.08) 100%);
       border: 2px solid rgba(180, 74, 255, 0.3);
-      border-radius: var(--radius);
       box-shadow: 0 0 80px rgba(180, 74, 255, 0.2);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(20px);
-      transition: 0.4s;
     }
     
     .solution-box:hover {
@@ -334,16 +430,16 @@
     .solution-box > * { position: relative; z-index: 1; }
     
     .solution-box .icon {
-      font-size: 48px;
-      margin-bottom: 24px;
+      font-size: 40px;
+      margin-bottom: 20px;
       display: block;
     }
     
     .solution-box h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 42px;
+      font-size: 36px;
       font-weight: 900;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       background: var(--gradient-gold);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -353,19 +449,19 @@
     
     .solution-box p {
       color: var(--text-secondary);
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.7;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
     
-    .hero-cta { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
     
-    /* Карточки */
+    /* ===== КАРТОЧКИ ===== */
     .card {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(18, 18, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(13, 13, 21, 0.6);
       border-radius: var(--radius);
-      padding: 40px;
+      padding: 36px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       transition: 0.4s;
       position: relative;
@@ -393,18 +489,20 @@
     
     .card:hover::before { transform: scaleX(1); }
     
-    section { padding: 120px 0; position: relative; }
+    section { padding: 100px 0; position: relative; }
     
     .section-title { 
       margin-bottom: 60px; 
       max-width: 800px;
       text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .section-title h2 {
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       font-family: 'Playfair Display', serif;
-      font-size: 52px;
+      font-size: 44px;
       font-weight: 900;
       letter-spacing: -0.02em;
       background: var(--gradient-gold);
@@ -416,39 +514,38 @@
     .section-title p { 
       margin: 0; 
       color: var(--text-secondary); 
-      font-size: 20px; 
+      font-size: 18px; 
       line-height: 1.6; 
     }
 
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    @media (max-width: 850px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 
-    .case-card h3 { margin: 0 0 24px; font-size: 28px; font-weight: 700; }
+    .case-card h3 { margin: 0 0 20px; font-size: 24px; font-weight: 700; }
     
     .pill {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-radius: 99px;
       background: var(--gradient-gold);
       font-weight: 700;
       color: var(--bg-primary);
-      font-size: 13px;
-      margin-bottom: 24px;
+      font-size: 12px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     
-    .list { padding-left: 28px; margin: 24px 0 0; color: var(--text-secondary); }
-    .list li { margin: 16px 0; line-height: 1.7; font-size: 16px; }
+    .list { padding-left: 24px; margin: 20px 0 0; color: var(--text-secondary); }
+    .list li { margin: 12px 0; line-height: 1.7; font-size: 15px; }
 
     .service-item {
-      padding: 40px;
+      padding: 32px;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(26, 26, 37, 0.5);
-      margin-top: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(21, 21, 31, 0.5);
+      margin-top: 24px;
       position: relative;
       overflow: hidden;
       transition: 0.4s;
@@ -474,8 +571,8 @@
     }
     
     .service-item h4 { 
-      margin: 0 0 16px; 
-      font-size: 24px; 
+      margin: 0 0 12px; 
+      font-size: 22px; 
       font-weight: 700;
       color: var(--gold);
     }
@@ -483,68 +580,67 @@
     .service-item p { 
       margin: 0; 
       color: var(--text-secondary); 
-      font-size: 17px; 
+      font-size: 15px; 
       line-height: 1.7; 
     }
     
     .price-tag {
       display: inline-block;
-      padding: 16px 32px;
+      padding: 14px 28px;
       background: var(--gradient-gold);
       color: var(--bg-primary);
       font-weight: 800;
-      font-size: 24px;
-      border-radius: 16px;
-      margin: 20px 0;
+      font-size: 22px;
+      border-radius: 14px;
+      margin: 16px 0;
       box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    /* ЧАТ */
-    .chat-container { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; align-items: start; }
-    @media (max-width: 1024px) { .chat-container { grid-template-columns: 1fr; } }
+    /* ===== ЧАТ ===== */
+    .chat-container { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 36px; align-items: start; }
     
     .chat {
-      height: 600px;
+      height: 560px;
       display: flex;
       flex-direction: column;
       border: 1px solid rgba(255, 215, 0, 0.2);
       border-radius: var(--radius);
-      background: rgba(18, 18, 26, 0.8);
+      background: rgba(13, 13, 21, 0.8);
       overflow: hidden;
       box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(30px);
     }
     
     .chat-header {
-      padding: 28px 32px;
+      padding: 24px 28px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-weight: 700;
-      font-size: 17px;
-      background: rgba(10, 10, 15, 0.5);
+      font-size: 16px;
+      background: rgba(5, 5, 10, 0.5);
     }
     
     .chat-body { 
-      padding: 32px; 
+      padding: 28px; 
       display: flex; 
       flex-direction: column; 
-      gap: 20px; 
+      gap: 18px; 
       overflow-y: auto; 
       flex: 1;
     }
     
     .bubble {
       max-width: 85%;
-      padding: 20px 24px;
-      border-radius: 20px;
+      padding: 18px 22px;
+      border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(26, 26, 37, 0.6);
+      background: rgba(21, 21, 31, 0.6);
       color: var(--text-primary);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.6;
       white-space: pre-wrap;
       backdrop-filter: blur(10px);
@@ -561,22 +657,22 @@
     
     .chat-footer {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 28px 32px;
+      padding: 24px 28px;
       display: flex;
-      gap: 16px;
-      background: rgba(10, 10, 15, 0.5);
+      gap: 14px;
+      background: rgba(5, 5, 10, 0.5);
     }
     
-    /* Формы */
+    /* ===== ФОРМЫ ===== */
     input, textarea, select {
       width: 100%;
-      border-radius: 16px;
+      border-radius: 14px;
       border: 2px solid rgba(255, 255, 255, 0.1);
-      background: rgba(26, 26, 37, 0.5);
-      padding: 18px 24px;
+      background: rgba(21, 21, 31, 0.5);
+      padding: 16px 20px;
       color: var(--text-primary);
       outline: none;
-      font-size: 16px;
+      font-size: 15px;
       font-family: inherit;
       transition: 0.3s;
       backdrop-filter: blur(10px);
@@ -585,32 +681,31 @@
     input:focus, textarea:focus, select:focus { 
       border-color: var(--gold); 
       box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-      background: rgba(26, 26, 37, 0.8);
+      background: rgba(21, 21, 31, 0.8);
     }
     
-    textarea { min-height: 140px; resize: vertical; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
-    label { display: block; color: var(--text-primary); font-weight: 700; margin: 0 0 12px; font-size: 15px; }
-    .field { margin-bottom: 32px; }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    label { display: block; color: var(--text-primary); font-weight: 700; margin: 0 0 10px; font-size: 14px; }
+    .field { margin-bottom: 28px; }
 
-    /* Footer */
+    /* ===== FOOTER ===== */
     .footer {
       border-top: 1px solid rgba(255, 215, 0, 0.2);
-      padding: 80px 0;
-      margin-top: 80px;
+      padding: 60px 0;
+      margin-top: 60px;
       color: var(--text-secondary);
-      font-size: 15px;
+      font-size: 14px;
       text-align: center;
-      background: rgba(10, 10, 15, 0.8);
+      background: rgba(5, 5, 10, 0.8);
       backdrop-filter: blur(30px);
     }
     
     .footer a { color: var(--text-primary); font-weight: 600; transition: 0.3s; }
     .footer a:hover { color: var(--gold); }
-    .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; flex-wrap: wrap; }
 
-    /* Popup */
+    /* ===== POPUP ===== */
     .popup {
       position: fixed;
       inset: 0;
@@ -626,11 +721,11 @@
     .popup.show { display: flex; }
     
     .popup-card {
-      width: min(560px, 100%);
-      border-radius: 32px;
+      width: min(520px, 100%);
+      border-radius: 28px;
       border: 2px solid var(--gold);
       background: var(--bg-secondary);
-      padding: 48px;
+      padding: 40px;
       text-align: center;
       box-shadow: 0 0 120px rgba(255, 215, 0, 0.3);
       animation: popupAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -642,8 +737,8 @@
     }
     
     .popup-card h3 { 
-      margin: 0 0 20px; 
-      font-size: 32px; 
+      margin: 0 0 16px; 
+      font-size: 28px; 
       font-weight: 800;
       background: var(--gradient-gold);
       -webkit-background-clip: text;
@@ -652,19 +747,19 @@
     }
     
     .popup-card p { 
-      margin: 0 0 32px; 
+      margin: 0 0 28px; 
       color: var(--text-secondary); 
       line-height: 1.7; 
-      font-size: 17px; 
+      font-size: 16px; 
     }
     
-    .popup-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .popup-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    /* АНИМАЦИЯ ДОРОЖНОЙ КАРТЫ */
+    /* ===== ДОРОЖНАЯ КАРТА ===== */
     .roadmap-container {
       position: relative;
-      padding: 80px 0;
-      margin: 60px 0;
+      padding: 60px 0;
+      margin: 40px 0;
     }
     
     .roadmap-svg {
@@ -691,8 +786,8 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       background: var(--gradient-gold);
       box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
@@ -709,9 +804,9 @@
     .roadmap-node::before {
       content: "";
       position: absolute;
-      inset: -12px;
+      inset: -10px;
       border-radius: 50%;
-      border: 3px solid var(--gold);
+      border: 2px solid var(--gold);
       opacity: 0.3;
       animation: ripple 2s ease-out infinite;
     }
@@ -720,13 +815,8 @@
       0% { transform: scale(1); opacity: 0.3; }
       100% { transform: scale(2.5); opacity: 0; }
     }
-    
-    @media (max-width: 1024px) {
-      .roadmap-svg { display: none; }
-      .roadmap-node { display: none; }
-    }
 
-    /* Анимации появления */
+    /* ===== АНИМАЦИИ ПОЯВЛЕНИЯ ===== */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -739,15 +829,93 @@
     }
 
     .hidden { display: none !important; }
+
+    /* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .chat-container { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .wrap { padding: 0 24px; }
+      .problem-box, .solution-box { padding: 36px; }
+      .problem-box h2, .solution-box h2 { font-size: 30px; }
+      .section-title h2 { font-size: 36px; }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { 
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(5, 5, 10, 0.98);
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        backdrop-filter: blur(30px);
+      }
+      .nav-links.active { display: flex; }
+      .nav-toggle { display: block; }
+      .nav-inner .btn { display: none; }
+      
+      .hero { padding: 120px 0 60px; }
+      .hero-grid { gap: 30px; }
+      .problem-box, .solution-box { padding: 28px; }
+      .problem-box h2, .solution-box h2 { font-size: 26px; }
+      .problem-box p, .solution-box p { font-size: 15px; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; justify-content: center; }
+      
+      section { padding: 60px 0; }
+      .section-title h2 { font-size: 28px; }
+      .section-title p { font-size: 16px; }
+      
+      .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 20px; }
+      
+      .card { padding: 24px; }
+      .service-item { padding: 24px; }
+      .service-item h4 { font-size: 18px; }
+      
+      .chat { height: 480px; }
+      .chat-header, .chat-footer { padding: 16px 20px; }
+      .chat-body { padding: 20px; }
+      
+      .form-grid { grid-template-columns: 1fr; gap: 0; }
+      
+      .price-tag { font-size: 18px; padding: 12px 20px; }
+      
+      .btn { padding: 14px 24px; font-size: 14px; }
+      .btn-primary { padding: 16px 28px; }
+      
+      .popup-card { padding: 28px; }
+      .popup-card h3 { font-size: 24px; }
+      
+      .roadmap-container { display: none; }
+    }
+    
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+      .problem-box, .solution-box { padding: 24px; }
+      .problem-box h2, .solution-box h2 { font-size: 22px; }
+      .section-title h2 { font-size: 24px; }
+      .card { padding: 20px; }
+      .service-item { padding: 20px; }
+      .chat { height: 420px; }
+      .bubble { padding: 14px 18px; font-size: 14px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Анимированный фон -->
-  <div class="bg-animation">
-    <div class="bg-gradient bg-gradient-1"></div>
-    <div class="bg-gradient bg-gradient-2"></div>
-    <div class="bg-gradient bg-gradient-3"></div>
+  <!-- ДОРОГАЯ ФОНОВАЯ ПОДЛОЖКА -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-lines" id="bgLines"></div>
+    <div class="bg-vignette"></div>
   </div>
 
   <!-- Навигация -->
@@ -757,41 +925,42 @@
         <span class="logo-dot"></span>
         <span>PREMIUM DIGITAL</span>
       </div>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="#problems">Проблемы</a>
         <a href="#solutions">Решения</a>
         <a href="#diagnostic">Диагностика</a>
         <a href="#case">Кейс</a>
         <a href="#bot">Анкета</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Меню">☰</button>
       <a class="btn btn-primary" href="#bot"><span>Получить решение</span></a>
     </div>
   </header>
 
   <main>
-    <!-- HERO - сразу проблема и решение -->
-    <div class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-label="Главный экран">
       <div class="wrap hero-grid">
-        <div class="problem-box fade-in">
-          <span class="icon">❌</span>
+        <article class="problem-box fade-in">
+          <span class="icon" aria-hidden="true">❌</span>
           <h2>Ваш сайт не продаёт. Бот не работает. Клиенты уходят к конкурентам.</h2>
           <p>Вы теряете деньги каждый день, пока ваш сайт просто «висит» в интернете. Посетители заходят и уходят, не оставив даже контакт. Ручная обработка заявок съедает часы вашего времени.</p>
-        </div>
+        </article>
 
-        <div class="solution-box fade-in">
-          <span class="icon">✨</span>
+        <article class="solution-box fade-in">
+          <span class="icon" aria-hidden="true">✨</span>
           <h2>Автономная система продаж за 14 дней</h2>
           <p>Сайт + чат-бот, которые автоматически квалифицируют лидов и приносят готовые заявки в Telegram 24/7. Без вашего участия. Без «красивых картинок», которые не продают.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#bot"><span>Пройти диагностику</span></a>
             <a class="btn btn-ghost" href="#case"><span>Смотреть кейс</span></a>
           </div>
-        </div>
+        </article>
       </div>
-    </div>
+    </section>
 
     <!-- ДОРОЖНАЯ КАРТА -->
-    <div class="roadmap-container">
+    <div class="roadmap-container" aria-hidden="true">
       <svg class="roadmap-svg" viewBox="0 0 6 1000" preserveAspectRatio="none">
         <defs>
           <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -811,7 +980,7 @@
     </div>
 
     <!-- ПРОБЛЕМЫ -->
-    <section id="problems">
+    <section id="problems" aria-label="Проблемы бизнеса">
       <div class="wrap">
         <div class="section-title fade-in">
           <h2>Почему ваш бизнес теряет клиентов</h2>
@@ -819,39 +988,39 @@
         </div>
 
         <div class="grid-2">
-          <div class="card fade-in">
-            <h3 style="margin:0 0 16px; font-size:24px;">🔴 Сайт есть, заявок нет</h3>
-            <p style="color:var(--text-secondary); line-height:1.7; font-size:17px;">
+          <article class="card fade-in">
+            <h3>🔴 Сайт есть, заявок нет</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
               Вы потратили деньги на разработку, но телефон молчит. Посетители заходят и уходят. Проблема не в трафике — проблема в том, что сайт не продаёт.
             </p>
-          </div>
+          </article>
 
-          <div class="card fade-in">
-            <h3 style="margin:0 0 16px; font-size:24px;">🔴 Бот не работает или бесит</h3>
-            <p style="color:var(--text-secondary); line-height:1.7; font-size:17px;">
+          <article class="card fade-in">
+            <h3> Бот не работает или бесит</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
               Чат-бот отвечает шаблонными фразами. Клиенты злятся и уходят к конкурентам, которые отвечают мгновенно и по делу.
             </p>
-          </div>
+          </article>
 
-          <div class="card fade-in">
-            <h3 style="margin:0 0 16px; font-size:24px;">🔴 Ручная обработка заявок</h3>
-            <p style="color:var(--text-secondary); line-height:1.7; font-size:17px;">
+          <article class="card fade-in">
+            <h3>🔴 Ручная обработка заявок</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
               Вы тратите часы на ответы в Direct и WhatsApp. Отвечаете не сразу — клиент уже ушёл. Нужна система, которая работает 24/7.
             </p>
-          </div>
+          </article>
 
-          <div class="card fade-in">
-            <h3 style="margin:0 0 16px; font-size:24px;">🔴 Конкуренты забирают клиентов</h3>
-            <p style="color:var(--text-secondary); line-height:1.7; font-size:17px;">
+          <article class="card fade-in">
+            <h3>🔴 Конкуренты забирают клиентов</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
               Пока вы думаете «может, потом», конкуренты уже внедрили бота, который автоматически записывает на консультацию и отправляет вам готовых клиентов.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- РЕШЕНИЯ -->
-    <section id="solutions">
+    <section id="solutions" aria-label="Решения">
       <div class="wrap">
         <div class="section-title fade-in">
           <h2>Решение: Сайт + Чат-бот</h2>
@@ -876,56 +1045,56 @@
     </section>
 
     <!-- ДИАГНОСТИКА -->
-    <section id="diagnostic">
+    <section id="diagnostic" aria-label="Диагностическая консультация">
       <div class="wrap">
         <div class="section-title fade-in">
           <h2>Диагностическая консультация</h2>
           <p>Гибридный формат, который экономит ваше время и даёт максимальную пользу</p>
         </div>
 
-        <div class="card fade-in" style="padding: 60px;">
+        <div class="card fade-in" style="padding: 48px;">
           <div class="price-tag">5 000 ₽ / 45 минут</div>
           
-          <h3 style="font-size: 32px; margin: 32px 0 20px; font-weight: 800;">Что вы получаете:</h3>
+          <h3 style="font-size: 28px; margin: 28px 0 16px; font-weight: 800;">Что вы получаете:</h3>
           
-          <div class="grid-2" style="margin-top: 40px;">
+          <div class="grid-2" style="margin-top: 32px;">
             <div>
-              <h4 style="font-size: 22px; margin-bottom: 16px; color: var(--gold);">📝 Текстовый отчёт</h4>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 16px;">Детальный разбор вашей ситуации с конкретными рекомендациями. Не «вода», а пошаговый план действий.</p>
+              <h4 style="font-size: 20px; margin-bottom: 12px; color: var(--gold);">📝 Текстовый отчёт</h4>
+              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15px;">Детальный разбор вашей ситуации с конкретными рекомендациями. Не «вода», а пошаговый план действий.</p>
             </div>
             
             <div>
-              <h4 style="font-size: 22px; margin-bottom: 16px; color: var(--gold);">📊 Презентация и файлы</h4>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 16px;">Наглядные материалы, которые вы можете показать команде или использовать для принятия решений.</p>
+              <h4 style="font-size: 20px; margin-bottom: 12px; color: var(--gold);">📊 Презентация и файлы</h4>
+              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15px;">Наглядные материалы, которые вы можете показать команде или использовать для принятия решений.</p>
             </div>
             
             <div>
-              <h4 style="font-size: 22px; margin-bottom: 16px; color: var(--gold);">️ Голосовые сообщения</h4>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 16px;">Персональные аудио-разборы с объяснениями и ответами на ваши вопросы. Слушайте в удобное время.</p>
+              <h4 style="font-size: 20px; margin-bottom: 12px; color: var(--gold);">🎙️ Голосовые сообщения</h4>
+              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15px;">Персональные аудио-разборы с объяснениями и ответами на ваши вопросы. Слушайте в удобное время.</p>
             </div>
             
             <div>
-              <h4 style="font-size: 22px; margin-bottom: 16px; color: var(--gold);">⚡ Экономия времени</h4>
-              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 16px;">Вместо часов поиска информации — готовое решение за 45 минут. Для бизнеса и экспертов это критично.</p>
+              <h4 style="font-size: 20px; margin-bottom: 12px; color: var(--gold);">⚡ Экономия времени</h4>
+              <p style="color: var(--text-secondary); line-height: 1.7; font-size: 15px;">Вместо часов поиска информации — готовое решение за 45 минут. Для бизнеса и экспертов это критично.</p>
             </div>
           </div>
           
-          <div style="margin-top: 48px; padding: 40px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(183, 110, 121, 0.1) 100%); border-radius: 24px; border: 1px solid rgba(255, 215, 0, 0.3);">
-            <h4 style="font-size: 24px; margin-bottom: 16px; color: var(--gold);">💡 Почему гибридный формат?</h4>
-            <p style="font-size: 18px; line-height: 1.7; color: var(--text-secondary);">
+          <div style="margin-top: 40px; padding: 32px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(183, 110, 121, 0.08) 100%); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.3);">
+            <h4 style="font-size: 22px; margin-bottom: 12px; color: var(--gold);">💡 Почему гибридный формат?</h4>
+            <p style="font-size: 16px; line-height: 1.7; color: var(--text-secondary);">
               Вы получаете не просто «консультацию», а полноценный пакет материалов. Текстовый отчёт — для быстрого ознакомления. Презентация — для команды. Голосовые сообщения — для глубокого понимания. Всё это экономит ваше время и даёт максимальную пользу.
             </p>
           </div>
           
-          <div style="margin-top: 40px; text-align: center;">
-            <a class="btn btn-primary" href="#bot" style="padding: 24px 48px; font-size: 18px;"><span>Записаться на диагностику</span></a>
+          <div style="margin-top: 32px; text-align: center;">
+            <a class="btn btn-primary" href="#bot" style="padding: 20px 40px; font-size: 16px;"><span>Записаться на диагностику</span></a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- КЕЙС -->
-    <section id="case">
+    <section id="case" aria-label="Кейс PhotoBoostMP">
       <div class="wrap">
         <div class="section-title fade-in">
           <div>
@@ -935,7 +1104,7 @@
         </div>
 
         <div class="grid-2">
-          <div class="card case-card fade-in">
+          <article class="card case-card fade-in">
             <span class="pill">E-COM АВТОМАТИЗАЦИЯ</span>
             <h3>Что было сделано</h3>
             <ul class="list">
@@ -944,12 +1113,12 @@
               <li>Создана система мгновенных уведомлений в Telegram</li>
               <li>Клиент получает измеримый план действий</li>
             </ul>
-            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" style="margin-top:32px;"><span>Открыть проект</span></a>
-          </div>
+            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" rel="noopener" style="margin-top:28px;"><span>Открыть проект</span></a>
+          </article>
 
-          <div class="card case-card fade-in">
+          <article class="card case-card fade-in">
             <h3>Результат для клиента</h3>
-            <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:24px; font-size: 17px;">
+            <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:20px; font-size: 15px;">
               Вместо ручной проверки сотен карточек — автоматическая система, которая работает 24/7. Клиенты получают мгновенный анализ, вы получаете готовых лидов.
             </p>
             <ul class="list">
@@ -958,13 +1127,13 @@
               <li>Рост конверсии в заявки</li>
               <li>Экономия 10+ часов в неделю</li>
             </ul>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- ДИАГНОСТИКА-БОТ -->
-    <section id="bot">
+    <section id="bot" aria-label="Экспресс-диагностика">
       <div class="wrap">
         <div class="section-title fade-in">
           <div>
@@ -977,28 +1146,28 @@
           <div class="chat fade-in">
             <div class="chat-header">
               <span>✨ AI-ассистент</span>
-              <span style="color:var(--text-secondary); font-weight:600; font-size:14px;" id="chatStepLabel">Шаг 1/7</span>
+              <span style="color:var(--text-secondary); font-weight:600; font-size:13px;" id="chatStepLabel">Шаг 1/7</span>
             </div>
             <div class="chat-body" id="chatBody"></div>
             <div class="chat-footer">
-              <form id="chatForm" style="display:flex; gap:16px; width:100%;">
+              <form id="chatForm" style="display:flex; gap:12px; width:100%;">
                 <input id="chatInput" type="text" autocomplete="off" placeholder="Введите ваш ответ..." required style="margin:0;" />
-                <button class="btn btn-primary" type="submit" style="padding:18px 32px;"><span>→</span></button>
+                <button class="btn btn-primary" type="submit" style="padding:16px 24px;"><span>→</span></button>
               </form>
             </div>
           </div>
 
           <div class="card fade-in">
-            <h3 style="margin:0 0 24px; font-size:28px;">Как это работает?</h3>
+            <h3 style="margin:0 0 20px; font-size:24px;">Как это работает?</h3>
             <ul class="list" style="margin:0;">
               <li>Вы отвечаете на 7 простых вопросов (2 минуты)</li>
               <li>Мы определяем вашу главную проблему и готовность к решению</li>
               <li>Я лично изучаю заявку и пишу вам в Telegram</li>
               <li>Вы получаете конкретное предложение, а не «давайте обсудим»</li>
             </ul>
-            <div style="margin-top:32px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.1);">
-              <p style="color:var(--text-secondary); margin:0 0 24px; font-size:16px;">Не хотите чат? <a href="#form" style="color:var(--gold); font-weight:700; text-decoration:underline;">Заполните форму ниже ↓</a></p>
-              <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="width:100%; justify-content:center;"><span>Читать Telegram-канал</span></a>
+            <div style="margin-top:28px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1);">
+              <p style="color:var(--text-secondary); margin:0 0 20px; font-size:15px;">Не хотите чат? <a href="#form" style="color:var(--gold); font-weight:700; text-decoration:underline;">Заполните форму ниже ↓</a></p>
+              <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" rel="noopener" style="width:100%; justify-content:center;"><span>Читать Telegram-канал</span></a>
             </div>
           </div>
         </div>
@@ -1006,7 +1175,7 @@
     </section>
 
     <!-- ФОРМА -->
-    <section id="form">
+    <section id="form" aria-label="Форма заявки">
       <div class="wrap">
         <div class="section-title fade-in">
           <div>
@@ -1052,7 +1221,7 @@
               <textarea id="c_message" required placeholder="Например: сайт есть, но заявок нет. Или: нужен бот для автоматической записи клиентов. Ссылка: https://..."></textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center; padding:20px;"><span>Отправить заявку</span></button>
+            <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center; padding:18px;"><span>Отправить заявку</span></button>
           </form>
         </div>
       </div>
@@ -1064,7 +1233,7 @@
   <footer class="footer">
     <div class="wrap">
       <div class="footer-links">
-        <a href="https://t.me/neiro_contents" target="_blank">Telegram-канал</a>
+        <a href="https://t.me/neiro_contents" target="_blank" rel="noopener">Telegram-канал</a>
         <a href="#problems">Проблемы</a>
         <a href="#solutions">Решения</a>
         <a href="#diagnostic">Диагностика</a>
@@ -1072,17 +1241,17 @@
         <a href="#bot">Анкета</a>
       </div>
       <div>© 2026 PREMIUM DIGITAL. Все права защищены.</div>
-      <div style="margin-top:16px; font-size:14px; opacity:0.6;">Создаём системы, которые приносят деньги, а не просто «существуют».</div>
+      <div style="margin-top:12px; font-size:13px; opacity:0.6;">Создаём системы, которые приносят деньги, а не просто «существуют».</div>
     </div>
   </footer>
 
   <!-- POPUP -->
-  <div class="popup" id="popup">
+  <div class="popup" id="popup" role="dialog" aria-modal="true">
     <div class="popup-card">
       <h3>✅ Заявка отправлена!</h3>
       <p>Я получила уведомление в Telegram. Изучу вашу ситуацию и свяжусь с вами в течение часа с конкретным предложением.</p>
       <div class="popup-actions">
-        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank"><span>Подписаться на канал</span></a>
+        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank" rel="noopener"><span>Подписаться на канал</span></a>
         <button class="btn btn-ghost" type="button" onclick="closePopup()"><span>Закрыть</span></button>
       </div>
     </div>
@@ -1090,14 +1259,26 @@
 
   <script>
     // Генерация частиц
-    const bgAnimation = document.querySelector('.bg-animation');
-    for (let i = 0; i < 50; i++) {
+    const bgLayer = document.querySelector('.bg-layer');
+    for (let i = 0; i < 40; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       particle.style.left = Math.random() * 100 + '%';
       particle.style.animationDelay = Math.random() * 15 + 's';
-      particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-      bgAnimation.appendChild(particle);
+      particle.style.animationDuration = (10 + Math.random() * 15) + 's';
+      bgLayer.appendChild(particle);
+    }
+    
+    // Генерация движущихся линий
+    const bgLines = document.getElementById('bgLines');
+    for (let i = 0; i < 8; i++) {
+      const line = document.createElement('div');
+      line.className = 'bg-line';
+      line.style.top = (10 + Math.random() * 80) + '%';
+      line.style.width = (200 + Math.random() * 400) + 'px';
+      line.style.animationDelay = Math.random() * 15 + 's';
+      line.style.animationDuration = (10 + Math.random() * 10) + 's';
+      bgLines.appendChild(line);
     }
 
     // Telegram данные
@@ -1135,22 +1316,34 @@
         nav.classList.remove('scrolled');
       }
     });
+    
+    // Мобильное меню
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    // Закрытие меню при клике на ссылку
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
 
     // АНИМАЦИЯ ДОРОЖНОЙ КАРТЫ
     const roadmapLine = document.querySelector('.roadmap-line');
     const roadmapNodes = document.querySelectorAll('.roadmap-node');
     
     function updateRoadmap() {
+      if (!roadmapLine) return;
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = scrollTop / docHeight;
       
-      // Анимация линии
       const lineLength = 3000;
       const offset = lineLength - (scrollPercent * lineLength * 1.5);
       roadmapLine.style.strokeDashoffset = Math.max(0, offset);
       
-      // Показ узлов
       roadmapNodes.forEach((node, index) => {
         const nodePosition = (index + 1) / (roadmapNodes.length + 1);
         if (scrollPercent >= nodePosition - 0.1) {
@@ -1166,7 +1359,7 @@
     const fadeElements = document.querySelectorAll('.fade-in');
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+      rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -1221,7 +1414,7 @@
         document.getElementById("chatInput").disabled = true;
         document.querySelector("#chatForm button").disabled = true;
 
-        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Проблема: ${answers[1]}\n🛍️ Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n📱 Контакт: ${answers[6]}`;
+        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Проблема: ${answers[1]}\n🛍️ Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n Контакт: ${answers[6]}`;
         
         const success = await sendToTelegram(text);
         
@@ -1256,7 +1449,7 @@
       const budget = document.getElementById("c_budget").value;
       const message = document.getElementById("c_message").value.trim();
 
-      const text = ` <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n Проблема: ${message}`;
+      const text = `🔥 <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n💬 Проблема: ${message}`;
 
       const success = await sendToTelegram(text);
 
