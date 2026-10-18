@@ -1,259 +1,183 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-
-                
-              </style>
-                        </head>
-                        <body>
-                            <!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Кристина • Сайты, Чат-боты и AI-агенты</title>
   <style>
-    :root{
-      --bg:#0b1020;
-      --panel:#0f1730;
-      --panel2:#0c142b;
-      --text:#eaf0ff;
-      --muted:#a7b2dd;
-      --line: rgba(255,255,255,.10);
-      --accent:#7CFF6B;     /* Бунтарь: дерзкий акцент */
-      --accent2:#9B5CFF;    /* Бунтарь: глубина */
-      --gold:#FFD36B;       /* Правитель: структура и ценность */
-      --shadow: 0 16px 50px rgba(0,0,0,.45);
-      --radius:18px;
-      --max:1120px;
+    :root {
+      /* Светлый, дорогой графит вместо глухого чёрного */
+      --bg: #13151a;
+      --panel: #1c2128;
+      --text: #f0f4f8;
+      --muted: #94a3b8;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #7CFF6B;     /* Дерзкий, но читаемый акцент */
+      --accent2: #9B5CFF;    /* Глубина и премиальность */
+      --radius: 16px;
+      --max: 1080px;
     }
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
-      background:
-        radial-gradient(1200px 600px at 15% 0%, rgba(155,92,255,.22), transparent 55%),
-        radial-gradient(900px 500px at 90% 20%, rgba(124,255,107,.16), transparent 55%),
-        linear-gradient(180deg, #070a14, var(--bg));
-      color:var(--text);
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    a{ color:inherit; text-decoration: none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
-    
+    a { color: inherit; text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--accent); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
     /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,.75);
-      border-bottom:1px solid var(--line);
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(19, 21, 26, 0.85);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-    }
-    .brand{
-      font-weight:850; letter-spacing:.2px;
-      display:flex; align-items:center; gap:10px;
-    }
-    .logo-dot{
-      width:12px; height:12px; border-radius:50%;
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .brand { font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; font-size: 18px; }
+    .logo-dot {
+      width: 10px; height: 10px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 6px rgba(124,255,107,.08), 0 0 22px rgba(155,92,255,.25);
     }
-    .nav-links{ display:flex; gap:16px; flex-wrap:wrap; }
-    .nav-links a{ color:var(--muted); font-weight:650; transition: .2s; }
-    .nav-links a:hover{ color:var(--text); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--muted); font-weight: 600; font-size: 15px; }
+    .nav-links a:hover { color: var(--text); }
 
     /* Buttons */
-    .btn{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color:var(--text);
-      padding:10px 16px;
-      border-radius:12px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.2s;
-      display:inline-flex; align-items:center; gap:10px;
+    .btn {
+      border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+      color: var(--text); padding: 12px 20px; border-radius: 12px;
+      font-weight: 700; cursor: pointer; transition: 0.2s;
+      display: inline-flex; align-items: center; gap: 8px; font-size: 15px;
     }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
-    .btn-primary{
-      background: linear-gradient(135deg, rgba(124,255,107,.18), rgba(155,92,255,.18));
-      border-color: rgba(124,255,107,.35);
-      box-shadow: 0 0 0 3px rgba(124,255,107,.08);
+    .btn:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.2); }
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(124,255,107,0.15), rgba(155,92,255,0.15));
+      border-color: rgba(124,255,107,0.4);
+      color: #fff;
     }
-    .btn-ghost{ background: transparent; border-color: rgba(255,255,255,.14); color: var(--muted); }
+    .btn-ghost { background: transparent; border-color: rgba(255,255,255,0.15); color: var(--muted); }
 
     /* Hero */
-    .hero{ padding:54px 0 24px; position:relative; overflow:hidden; }
-    .hero-grid{ display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:start; }
-    @media (max-width: 920px){ .hero-grid{ grid-template-columns:1fr; } }
+    .hero { padding: 80px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+    @media (max-width: 850px) { .hero-grid { grid-template-columns: 1fr; } }
     
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 14px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      color:var(--muted); font-weight:700; font-size: 14px;
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 99px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+      color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;
     }
-    .kicker b{ color: var(--gold); font-weight:900; letter-spacing:.3px; }
+    h1 { margin: 20px 0 16px; font-size: 48px; line-height: 1.1; letter-spacing: -0.03em; }
+    @media (max-width: 600px) { h1 { font-size: 34px; } }
+    .lead { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.7; max-width: 58ch; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
     
-    h1{ margin:18px 0 12px; font-size:46px; line-height:1.05; letter-spacing:-.8px; }
-    @media (max-width:560px){ h1{ font-size:32px; } }
-    
-    .lead{ margin:0; color:var(--muted); font-size:17px; line-height:1.6; max-width:62ch; }
-    .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
-    .hero-badges{ display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
-    .badge{
-      padding:10px 14px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      color:var(--muted); font-weight:700; font-size: 14px;
-      display:flex; gap:10px; align-items:center;
+    /* Cards & Sections */
+    .card {
+      border: 1px solid var(--line); background: var(--panel);
+      border-radius: var(--radius); padding: 28px;
     }
-    .badge i{
-      width:8px; height:8px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display:inline-block;
-    }
+    section { padding: 60px 0; }
+    .section-title { margin-bottom: 32px; }
+    .section-title h2 { margin: 0 0 12px; font-size: 32px; letter-spacing: -0.02em; }
+    .section-title p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 17px; }
 
-    /* Cards */
-    .card{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .profile-card{ padding:20px; position:relative; overflow:hidden; }
-    .profile-inner{ display:flex; flex-direction:column; gap:16px; }
-    .avatar{
-      width:100%; aspect-ratio: 1 / 1; border-radius: 18px;
-      border:1px solid rgba(255,255,255,.14);
-      background: radial-gradient(450px 260px at 30% 10%, rgba(155,92,255,.35), transparent 55%), rgba(255,255,255,.03);
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .meta-line{ color:var(--muted); font-weight:700; line-height:1.5; font-size: 15px; }
-    .meta-line b{ color:var(--text); }
-    .meta-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px; }
-    .smallnote{ color:var(--muted); font-weight:650; font-size:13.5px; line-height:1.5; margin-top: 12px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 850px) { .grid-2 { grid-template-columns: 1fr; } }
 
-    /* Sections */
-    section{ padding:32px 0; }
-    .section-title{ display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
-    .section-title h2{ margin:0; font-size:26px; letter-spacing:-.3px; }
-    .section-title p{ margin:0; color:var(--muted); max-width:66ch; line-height:1.6; font-weight:650; }
+    .case-card h3 { margin: 0 0 12px; font-size: 22px; }
+    .pill {
+      display: inline-block; padding: 6px 12px; border-radius: 99px;
+      background: rgba(124,255,107,0.1); border: 1px solid rgba(124,255,107,0.25);
+      font-weight: 700; color: var(--accent); font-size: 13px; margin-bottom: 16px;
+    }
+    .list { padding-left: 20px; margin: 16px 0 0; color: var(--muted); }
+    .list li { margin: 10px 0; line-height: 1.6; }
 
-    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
-    @media (max-width:920px){ .grid-2{ grid-template-columns:1fr; } }
+    .service-item {
+      padding: 24px; border-radius: 16px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02); margin-top: 20px; position: relative;
+    }
+    .service-item:first-child { margin-top: 0; }
+    .service-item::before {
+      content: ""; position: absolute; left: 0; top: 24px; bottom: 24px; width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2)); border-radius: 4px;
+    }
+    .service-item h4 { margin: 0 0 8px; font-size: 18px; }
+    .service-item p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 
-    .case-card{ padding:24px; }
-    .case-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 12px; }
-    .pill{
-      padding:6px 12px; border-radius:999px;
-      background: rgba(124,255,107,.12); border:1px solid rgba(124,255,107,.30);
-      font-weight:900; color: var(--accent); letter-spacing:.2px; font-size: 13px;
+    /* Chat Widget */
+    .chat-container { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: start; }
+    @media (max-width: 850px) { .chat-container { grid-template-columns: 1fr; } }
+    .chat {
+      height: 480px; display: flex; flex-direction: column;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: rgba(0,0,0,0.2); overflow: hidden;
     }
-    .case-card h3{ margin:0 0 10px; font-size:20px; }
-    .list{ padding-left:20px; margin:12px 0 0; }
-    .list li{ margin:8px 0; color:var(--muted); font-weight:650; line-height:1.55; }
-
-    .services-card{ padding:24px; }
-    .service-item{
-      padding:18px; border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.02);
-      margin-top:16px; position:relative; overflow:hidden;
+    .chat-header {
+      padding: 16px 20px; border-bottom: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255,255,255,0.02); font-weight: 700; font-size: 15px;
     }
-    .service-item:first-child{ margin-top: 0; }
-    .service-item:before{
-      content:""; position:absolute; inset:-1px auto -1px -1px; width:4px;
-      background: linear-gradient(180deg, var(--accent), var(--accent2)); opacity:.9;
+    .chat-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; flex: 1; }
+    .bubble {
+      max-width: 85%; padding: 14px 18px; border-radius: 16px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.04);
+      color: var(--text); font-size: 15px; line-height: 1.5; white-space: pre-wrap;
     }
-    .service-item h4{ margin:0 0 8px; font-size:17px; }
-    .service-item p{ margin:0; color:var(--muted); font-weight:650; line-height:1.6; font-size: 15px; }
-
-    /* Chat widget */
-    .bot-wrap{ padding:24px; display:grid; grid-template-columns: 1fr .95fr; gap:24px; align-items:start; }
-    @media (max-width:980px){ .bot-wrap{ grid-template-columns:1fr; } }
-    .chat{
-      height: 460px; display:flex; flex-direction:column;
-      border:1px solid rgba(255,255,255,.12); border-radius: 16px;
-      background: rgba(0,0,0,.2); overflow:hidden;
+    .bubble.me {
+      margin-left: auto; background: rgba(124,255,107,0.1);
+      border-color: rgba(124,255,107,0.3);
     }
-    .chat-header{
-      padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.10);
-      display:flex; justify-content:space-between; align-items:center;
-      background: rgba(255,255,255,.03);
-    }
-    .chat-header .title{ font-weight:900; display:flex; gap:10px; align-items:center; font-size: 15px; }
-    .bot-dot{
-      width:10px; height:10px; border-radius:50%; background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(124,255,107,.12), 0 0 18px rgba(124,255,107,.25);
-    }
-    .chat-body{ padding:16px; display:flex; flex-direction:column; gap:12px; overflow-y:auto; flex:1; }
-    .bubble{
-      max-width: 88%; padding:12px 14px; border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03); color: var(--text);
-      font-weight:650; line-height:1.45; white-space:pre-wrap; font-size: 15px;
-    }
-    .bubble.me{
-      margin-left:auto;
-      background: linear-gradient(135deg, rgba(124,255,107,.14), rgba(155,92,255,.12));
-      border-color: rgba(124,255,107,.28);
-    }
-    .chat-footer{
-      border-top:1px solid rgba(255,255,255,.10); padding:14px;
-      display:flex; gap:10px; align-items:center; background: rgba(255,255,255,.03);
+    .chat-footer {
+      border-top: 1px solid var(--line); padding: 16px 20px;
+      display: flex; gap: 12px; background: rgba(255,255,255,0.02);
     }
     
     /* Forms */
-    input[type="text"], input[type="email"], textarea, select{
-      width:100%; border-radius: 12px; border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.03); padding:12px 14px;
-      color: var(--text); outline:none; font-weight:650; font-size: 15px;
-      font-family: inherit;
+    input, textarea, select {
+      width: 100%; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03); padding: 14px 16px;
+      color: var(--text); outline: none; font-size: 15px; font-family: inherit;
+      transition: 0.2s;
     }
-    textarea{ min-height: 100px; resize: vertical; }
-    .form-card{ padding:24px; }
-    .form-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
-    @media (max-width:740px){ .form-grid{ grid-template-columns:1fr; } }
-    label{ display:block; color:var(--muted); font-weight:800; margin:0 0 8px; font-size: 14px; }
-    .field{ margin-bottom:16px; }
-    .two-actions{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); background: rgba(255,255,255,0.05); }
+    textarea { min-height: 110px; resize: vertical; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    label { display: block; color: var(--muted); font-weight: 700; margin: 0 0 8px; font-size: 14px; }
+    .field { margin-bottom: 20px; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--line); padding: 40px 0; margin-top: 40px;
+      color: var(--muted); font-size: 14px; text-align: center;
+    }
+    .footer a { color: var(--text); font-weight: 600; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
 
     /* Popup */
-    .popup{
-      position:fixed; inset:0; background: rgba(0,0,0,.7);
-      display:none; align-items:center; justify-content:center; z-index:99; padding:20px;
+    .popup {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+      display: none; align-items: center; justify-content: center; z-index: 100; padding: 20px;
+      backdrop-filter: blur(4px);
     }
-    .popup.show{ display:flex; }
-    .popup-card{
-      width:min(520px, 100%); border-radius: 18px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      box-shadow: var(--shadow); padding:24px; text-align: center;
+    .popup.show { display: flex; }
+    .popup-card {
+      width: min(480px, 100%); border-radius: 20px;
+      border: 1px solid var(--line); background: var(--panel);
+      padding: 32px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
-    .popup-card h3{ margin:0 0 12px; font-size:22px; }
-    .popup-card p{ margin:0 0 20px; color:var(--muted); font-weight:650; line-height:1.6; }
-    .popup-actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content: center; }
+    .popup-card h3 { margin: 0 0 12px; font-size: 24px; }
+    .popup-card p { margin: 0 0 24px; color: var(--muted); line-height: 1.6; }
+    .popup-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     
-    .cut{ position: relative; }
-    .cut:after{
-      content:""; position:absolute; left:-1px; top:10px;
-      width:4px; height: calc(100% - 20px);
-      background: linear-gradient(180deg, var(--gold), var(--accent2));
-      border-radius: 99px; opacity:.7;
-    }
-    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
@@ -268,9 +192,8 @@
         <a href="#case">Кейсы</a>
         <a href="#services">Услуги</a>
         <a href="#bot">Диагностика</a>
-        <a href="#form">Заявка</a>
       </nav>
-      <a class="btn btn-primary" href="#bot">Пройти диагностику →</a>
+      <a class="btn btn-primary" href="#bot">Пройти диагностику</a>
     </div>
   </header>
 
@@ -279,47 +202,32 @@
     <div class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="kicker">
-            <b>Правитель:</b> система и глубина + <b>Бунтарь:</b> срезание хаоса
-          </div>
-          <h1>Сайты и AI-агенты, которые не просто «красивые», а реально продают</h1>
+          <div class="kicker">Системный подход к хаосу рынка</div>
+          <h1>Сайты и AI-агенты, которые реально приносят деньги, а не просто «существуют»</h1>
           <p class="lead">
-            Я не навязываю «бота ради бота». Я провожу диагностику, нахожу реальную причину падения выручки или низкой конверсии, и внедряю инструмент, который решает именно вашу задачу. 10 лет в digital, 50+ проектов.
+            10 лет в digital. Я не продаю «ботов ради ботов». Я нахожу, где ваш бизнес теряет клиентов, и внедряю инструмент (сайт, воронку или AI), который это исправляет. Честно. Измеримо. Без воды.
           </p>
-
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#bot">Пройти бесплатную диагностику (2 мин)</a>
+            <a class="btn btn-primary" href="#bot">Получить разбор ситуации (2 мин)</a>
             <a class="btn btn-ghost" href="#case">Смотреть кейс PhotoBoostMP</a>
-          </div>
-
-          <div class="hero-badges">
-            <div class="badge"><i></i><span>Диагностика перед разработкой</span></div>
-            <div class="badge"><i></i><span>Честность и прозрачность</span></div>
-            <div class="badge"><i></i><span>Telegram-уведомления в 1 клик</span></div>
           </div>
         </div>
 
-        <aside class="card profile-card">
-          <div class="profile-inner">
-            <div class="avatar">
-              <!-- ЗАМЕНИТЕ src НА ССЫЛКУ НА ВАШЕ РЕАЛЬНОЕ ФОТО -->
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Кристина, эксперт по AI и digital" />
+        <div class="card">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="width:100%; aspect-ratio:1/1; border-radius:16px; background: linear-gradient(135deg, rgba(155,92,255,0.2), rgba(124,255,107,0.1)); display:flex; align-items:center; justify-content:center; border:1px solid var(--line); overflow:hidden;">
+              <!-- Вставь сюда ссылку на своё фото вместо placeholder -->
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Кристина" style="width:100%; height:100%; object-fit:cover; opacity: 0.9;">
             </div>
-            <div class="profile-meta">
-              <div class="meta-line"><b>Кристина</b> • Разработчик, маркетолог, эксперт по ИИ</div>
-              <div class="meta-line">
-                <b>Фокус:</b> Сайты под конверсию, чат-боты, AI-агенты (как мой автономный ассистент Kiera).
+            <div>
+              <div style="font-weight:800; font-size:18px; margin-bottom:4px;">Кристина</div>
+              <div style="color:var(--muted); font-size:15px; line-height:1.5;">
+                Разработчик и маркетолог. Создаю автономные цифровые системы (как мой AI-ассистент Kiera), которые квалифицируют лидов и закрывают сделки.
               </div>
-              <div class="meta-actions">
-                <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank" rel="noreferrer">Мой Telegram-канал</a>
-                <a class="btn btn-ghost" href="#form">Классическая форма</a>
-              </div>
-              <p class="smallnote">
-                «Работа начинается с диагностики, а не с продажи. Дерзко против хаоса, но с уважением к вашему бизнесу».
-              </p>
             </div>
+            <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="justify-content:center;">Мой Telegram-канал →</a>
           </div>
-        </aside>
+        </div>
       </div>
     </div>
 
@@ -328,36 +236,31 @@
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Реальный кейс: PhotoBoostMP</h2>
-            <p>Автоматизация проверки карточек для маркетплейсов. Не «на глаз», а по чётким критериям конверсии.</p>
-          </div>
-          <div>
-            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" rel="noreferrer">Открыть проект ↗</a>
+            <h2>Реальный результат: PhotoBoostMP</h2>
+            <p>Не «на глаз», а по чётким критериям конверсии. Автоматизация проверки карточек для маркетплейсов.</p>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="card case-card">
-            <div class="case-head">
-              <span class="pill">EdTech / E-com автоматизация</span>
-              <a class="btn btn-ghost" href="#bot">Хочу так же →</a>
-            </div>
+            <span class="pill">E-com автоматизация</span>
             <h3>Что было сделано</h3>
             <ul class="list">
               <li>Разработана система автоматической проверки карточек товаров.</li>
-              <li>Внедрены чёткие критерии оценки контента, влияющие на продажи.</li>
-              <li>Клиент получает не просто «мнение», а измеримый план действий: что исправить и зачем.</li>
+              <li>Внедрены чёткие метрики оценки контента, которые напрямую влияют на продажи.</li>
+              <li>Клиент получает не «мнение», а пошаговый план действий: что исправить и зачем.</li>
             </ul>
+            <a class="btn btn-primary" href="https://photoboostmp.online/" target="_blank" style="margin-top:20px;">Открыть проект ↗</a>
           </div>
 
-          <div class="card case-card cut">
-            <h3>Почему это работает на лидогенерацию</h3>
-            <p style="color:var(--muted); line-height:1.6; font-weight:650; margin-bottom: 12px;">
-              Рынок перенасыщен шумом. Ключ к доверию в 2026 году — не громкие обещания, а квалификация и быстрый, осязаемый анализ. 
+          <div class="card case-card">
+            <h3>Почему это работает на продажи</h3>
+            <p style="color:var(--muted); line-height:1.7; margin-bottom:16px;">
+              Рынок перенасыщен шумом и пустыми обещаниями. Ключ к доверию в 2026 году — это быстрая квалификация и осязаемый анализ. 
             </p>
             <ul class="list">
-              <li>Понятный оффер на лендинге.</li>
-              <li>Диалоговая анкета, которая выявляет реальную боль.</li>
+              <li>Понятный оффер, который бьёт точно в боль.</li>
+              <li>Диалоговая анкета, которая отсеивает нецелевых и выявляет горячих.</li>
               <li>Мгновенное уведомление мне в Telegram с резюме вашей ситуации.</li>
             </ul>
           </div>
@@ -371,22 +274,22 @@
         <div class="section-title">
           <div>
             <h2>Чем я могу быть полезна</h2>
-            <p>Вы получаете не «заявки ради заявок», а целевые обращения и работающую систему.</p>
+            <p>Вы получаете не «заявки ради заявок», а работающую систему и целевые обращения.</p>
           </div>
         </div>
 
-        <div class="card services-card">
+        <div class="card">
           <div class="service-item">
             <h4>1. Диагностическая консультация (5 000 ₽ / 45 мин)</h4>
             <p>Разбираем вашу текущую ситуацию. Выявляем, почему нет клиентов или низкая конверсия. Даю честный вердикт: какой инструмент вам реально нужен, а какой — пустая трата бюджета.</p>
           </div>
           <div class="service-item">
             <h4>2. Сайты и лендинги под конверсию</h4>
-            <p>Структура, офферы, блоки доверия. Дизайн в стиле «Правитель + Бунтарь»: строгая сетка, дорогая типографика и дерзкие акценты, которые заставляют нажать кнопку.</p>
+            <p>Структура, офферы, блоки доверия. Дизайн, который сочетает премиальную строгость и дерзкие акценты, заставляющие нажать кнопку «Оставить заявку».</p>
           </div>
           <div class="service-item">
             <h4>3. Чат-боты и «умные» AI-агенты</h4>
-            <p>От простых воронок записи до автономных цифровых сотрудников (как мой бот Kiera). Квалификация лида, сбор контактов, маршрутизация и уведомление вас в Telegram.</p>
+            <p>От простых воронок записи до автономных цифровых сотрудников. Квалификация лида, сбор контактов, маршрутизация и мгновенное уведомление вас в Telegram.</p>
           </div>
         </div>
       </div>
@@ -397,54 +300,39 @@
       <div class="wrap">
         <div class="section-title">
           <div>
-            <h2>Экспресс-диагностика в формате чат-бота</h2>
-            <p>Ответьте на 7 вопросов прямо здесь. Бот квалифицирует ваш запрос и отправит мне в Telegram резюме вашей ситуации.</p>
+            <h2>Экспресс-диагностика</h2>
+            <p>Ответьте на 4 вопроса прямо здесь. Я изучу вашу ситуацию и пришлю персональные рекомендации в Telegram.</p>
           </div>
         </div>
 
-        <div class="card bot-wrap">
+        <div class="chat-container">
           <!-- Chat -->
-          <div class="chat" aria-live="polite">
+          <div class="chat">
             <div class="chat-header">
-              <div class="title"><span class="bot-dot"></span> <span>AI-ассистент Кристины</span></div>
-              <span class="smallnote" id="chatStepLabel">Шаг 1/7</span>
+              <span>AI-ассистент Кристины</span>
+              <span style="color:var(--muted); font-weight:600; font-size:13px;" id="chatStepLabel">Шаг 1/4</span>
             </div>
-
             <div class="chat-body" id="chatBody"></div>
-
             <div class="chat-footer">
-              <form id="chatForm" style="display:flex; gap:10px; width:100%;">
-                <label class="sr-only" for="chatInput">Ваш ответ</label>
-                <input id="chatInput" type="text" autocomplete="off" placeholder="Напишите ответ..." required />
-                <button class="btn btn-primary" type="submit">Далее</button>
+              <form id="chatForm" style="display:flex; gap:12px; width:100%;">
+                <input id="chatInput" type="text" autocomplete="off" placeholder="Введите ваш ответ..." required style="margin:0;" />
+                <button class="btn btn-primary" type="submit" style="padding:14px 24px;">→</button>
               </form>
             </div>
           </div>
 
-          <!-- Summary -->
-          <div class="form-card">
-            <h3 style="margin:0 0 12px; font-size:20px;">Что вы получите?</h3>
-            <p style="color:var(--muted); line-height:1.6; font-weight:650; margin:0 0 20px;">
-              Я лично изучу вашу заявку. Вы получите от меня сообщение в Telegram с кратким резюме вашей ситуации и предложением следующих шагов (без воды и навязывания).
-            </p>
-            <div class="service-item" style="margin-top:0;">
-              <h4>Как это работает:</h4>
-              <ul class="list">
-                <li>Вы тратите 2 минуты на простые вопросы.</li>
-                <li>Бот определяет вашу «боль» и готовность к решению.</li>
-                <li>Я получаю структурированную заявку, а не просто «хочу сайт».</li>
-              </ul>
-            </div>
-
-            <div class="service-item">
-              <h4>Не хотите чат?</h4>
-              <p style="color:var(--muted); line-height:1.6; font-weight:650; margin: 8px 0 0;">
-                Используйте классическую форму ниже, результат будет тем же.
-              </p>
-              <div class="two-actions" style="margin-top:16px;">
-                <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" rel="noreferrer">Читать мой канал</a>
-                <button class="btn btn-primary" type="button" onclick="jumpToForm()">Заполнить форму</button>
-              </div>
+          <!-- Info -->
+          <div class="card">
+            <h3 style="margin:0 0 16px; font-size:22px;">Как это работает?</h3>
+            <ul class="list" style="margin:0;">
+              <li>Вы тратите 2 минуты на простые вопросы.</li>
+              <li>Бот определяет вашу главную «боль» и контекст задачи.</li>
+              <li>Я получаю структурированную заявку в Telegram, а не просто «хочу сайт».</li>
+              <li>Я лично изучаю её и пишу вам с конкретным предложением.</li>
+            </ul>
+            <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--line);">
+              <p style="color:var(--muted); margin:0 0 16px; font-size:15px;">Не хотите чат? <a href="#form" style="color:var(--accent); text-decoration:underline;">Заполните классическую форму ниже ↓</a></p>
+              <a class="btn btn-ghost" href="https://t.me/neiro_contents" target="_blank" style="width:100%; justify-content:center;">Читать мой Telegram-канал</a>
             </div>
           </div>
         </div>
@@ -461,7 +349,7 @@
           </div>
         </div>
 
-        <div class="card form-card">
+        <div class="card">
           <form id="classicForm">
             <div class="form-grid">
               <div class="field">
@@ -469,7 +357,7 @@
                 <input id="c_name" type="text" required placeholder="Имя" />
               </div>
               <div class="field">
-                <label for="c_contact">Telegram, WhatsApp или Email</label>
+                <label for="c_contact">Telegram или WhatsApp</label>
                 <input id="c_contact" type="text" required placeholder="@username или +7..." />
               </div>
             </div>
@@ -494,13 +382,10 @@
 
             <div class="field">
               <label for="c_message">Где сейчас болит? + ссылка на текущий сайт/бот (если есть)</label>
-              <textarea id="c_message" required placeholder="Например: низкая конверсия, устали от 'инфоцыган'. Ссылка: https://..."></textarea>
+              <textarea id="c_message" required placeholder="Например: низкая конверсия, устали от пустых обещаний. Ссылка: https://..."></textarea>
             </div>
 
-            <div class="two-actions">
-              <button class="btn btn-primary" type="submit">Отправить заявку</button>
-              <span class="smallnote">Нажимая кнопку, вы соглашаетесь на обработку данных и связь по заявке.</span>
-            </div>
+            <button class="btn btn-primary" type="submit" style="width:100%; justify-content:center; padding:16px;">Отправить заявку</button>
           </form>
         </div>
       </div>
@@ -508,300 +393,149 @@
 
   </main>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="https://t.me/neiro_contents" target="_blank">Telegram-канал</a>
+        <a href="#case">Кейсы</a>
+        <a href="#services">Услуги</a>
+      </div>
+      <div>© 2026 Кристина • Digital & AI. Все права защищены.</div>
+      <div style="margin-top:8px; font-size:13px; opacity:0.7;">Сделано с фокусом на результат, а не на хаос.</div>
+    </div>
+  </footer>
+
   <!-- POPUP -->
   <div class="popup" id="popup">
     <div class="popup-card">
-      <h3>✅ Заявка успешно отправлена!</h3>
+      <h3>✅ Заявка отправлена!</h3>
       <p>Я уже получила уведомление в Telegram. Изучу вашу ситуацию и свяжусь с вами в ближайшее время.</p>
-      <p style="font-size: 14px;">А пока можете подписаться на мой канал, чтобы не пропустить полезные разборы:</p>
       <div class="popup-actions">
-        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank" rel="noreferrer">Подписаться на канал</a>
+        <a class="btn btn-primary" href="https://t.me/neiro_contents" target="_blank">Подписаться на канал</a>
         <button class="btn btn-ghost" type="button" onclick="closePopup()">Закрыть</button>
       </div>
     </div>
   </div>
 
   <script>
-    const API_URL = "/api/lead";
+    // Твои данные Telegram
+    const BOT_TOKEN = "8788227838:AAHxvmXEQ6C2rKfhl0e1cgdl1sn1eUUfAUk";
+    const CHAT_ID = "6300678737";
 
-    function addMsg(text, who="me"){
+    // Функция отправки в Telegram через прокси (чтобы работало прямо из браузера без сервера)
+    async function sendToTelegram(text) {
+      const proxyUrl = "https://corsproxy.io/?";
+      const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      
+      try {
+        const response = await fetch(proxyUrl + encodeURIComponent(telegramUrl), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: "HTML" })
+        });
+        return response.ok;
+      } catch (e) {
+        console.error(e);
+        return false;
+      }
+    }
+
+    // --- ЛОГИКА ЧАТ-БОТА ---
+    const questions = [
+      "Привет! Я проведу короткую диагностику, чтобы не предлагать решения наугад. Как к вам обращаться?",
+      "Отлично! Какая у вас сейчас главная боль? (Нет клиентов, низкая конверсия, нужен бот, устали от пустых обещаний?)",
+      "Понял(а). Есть ли у вас уже сайт, бот или основная соцсеть? (Пришлите ссылку или напишите «нет, с нуля»)",
+      "И последнее: оставьте ваш Telegram или WhatsApp, чтобы я могла прислать персональные рекомендации и связаться."
+    ];
+    
+    let step = 0;
+    let answers = [];
+
+    function addMessage(text, isMe = false) {
       const chatBody = document.getElementById("chatBody");
       const div = document.createElement("div");
-      div.className = "bubble " + (who==="me" ? "me" : "");
+      div.className = "bubble " + (isMe ? "me" : "");
       div.textContent = text;
       chatBody.appendChild(div);
       chatBody.scrollTop = chatBody.scrollHeight;
+      document.getElementById("chatStepLabel").textContent = `Шаг ${Math.min(step + 1, questions.length)}/${questions.length}`;
     }
 
-    function setStepLabel(i, total){
-      document.getElementById("chatStepLabel").textContent = `Шаг ${i+1}/${total}`;
-    }
+    async function nextStep(e) {
+      if(e) e.preventDefault();
+      const input = document.getElementById("chatInput");
+      const val = input.value.trim();
+      if (!val) return;
 
-    // Вопросы, адаптированные под методологию Кристины (диагностика, боли аудитории, честность)
-    const steps = [
-      {
-        key: "name",
-        q: "Привет! Я проведу короткую диагностику, чтобы не предлагать вам «бота ради бота». Как к вам обращаться?"
-      },
-      {
-        key: "contact",
-        q: "Отлично! Куда вам удобнее получить результаты и связаться? (Напишите ваш Telegram, WhatsApp или email)"
-      },
-      {
-        key: "company",
-        q: "Кто вы и что продаёте? (Например: коуч, нутрициолог, владелец малого бизнеса, инфобизнес)"
-      },
-      {
-        key: "pain",
-        q: "Что сейчас болит сильнее всего? (Нехватка клиентов, низкая конверсия, страх перед «инфоцыганами», непонимание, какой инструмент нужен?)"
-      },
-      {
-        key: "websiteOrBot",
-        q: "Есть ли у вас уже сайт, бот или основная соцсеть? Пришлите ссылку (или напишите «нет, с нуля»)."
-      },
-      {
-        key: "budgetWillingToPay",
-        q: "Какой формат работы рассматриваете? (Диагностика за 5 000 ₽ / Разработка до 80к / 80-200к / 200к+ / Нужен расчёт)"
-      },
-      {
-        key: "message",
-        q: "И последний вопрос: что для вас принципиально важно в работе с подрядчиком? (Честность, прозрачность, глубина?)"
-      }
-    ];
+      addMessage(val, true);
+      answers.push(val);
+      input.value = "";
+      step++;
 
-    const state = {
-      answers: [],
-      source: "site_bot_diagnostic",
-      name: "",
-      contact: "",
-      company: "",
-      pain: "",
-      websiteOrBot: "",
-      budgetWillingToPay: "",
-      message: "",
-      goal: "Диагностика и разработка решения"
-    };
+      if (step < questions.length) {
+        setTimeout(() => addMessage(questions[step]), 600);
+      } else {
+        addMessage("Отлично! Формирую резюме и отправляю Кристине в Telegram...");
+        document.getElementById("chatInput").disabled = true;
+        document.querySelector("#chatForm button").disabled = true;
 
-    let stepIndex = 0;
-
-    const chatForm = document.getElementById("chatForm");
-    const chatInput = document.getElementById("chatInput");
-
-    function startBot(){
-      document.getElementById("chatBody").innerHTML = "";
-      stepIndex = 0;
-      addMsg("Я помогу выявить реальную проблему и подберу решение. Начнём?", "bot");
-      setTimeout(() => {
-        addMsg(steps[0].q, "bot");
-        setStepLabel(0, steps.length);
-        chatInput.value = "";
-        chatInput.placeholder = "Ваш ответ...";
-        chatInput.focus();
-      }, 600);
-    }
-
-    chatForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const val = (chatInput.value || "").trim();
-      if(!val) return;
-
-      const current = steps[stepIndex];
-      state[current.key] = val;
-      state.answers.push(`${current.key}: ${val}`);
-
-      addMsg(val, "me");
-      chatInput.value = "";
-      stepIndex++;
-
-      if(stepIndex < steps.length){
-        setTimeout(() => {
-          addMsg(steps[stepIndex].q, "bot");
-          setStepLabel(stepIndex, steps.length);
-          chatInput.focus();
-        }, 500);
-        return;
-      }
-
-      // Финал: отправка в Telegram через backend
-      addMsg("Супер! Сейчас отправлю резюме вашей ситуации Кристине в Telegram…", "bot");
-      chatInput.disabled = true;
-      chatInput.placeholder = "Отправка...";
-
-      const payload = { ...state, consent: true };
-
-      try{
-        const r = await fetch(API_URL, {
-          method:"POST",
-          headers: {"Content-Type":"application/json"},
-          body: JSON.stringify(payload)
-        });
-        const data = await r.json();
-        if(!data.ok) throw new Error(data.error || "send failed");
-
-        addMsg("Готово ✅ Заявка отправлена. Я свяжусь с вами в ближайшее время.", "bot");
-        setTimeout(showPopup, 800);
-      }catch(err){
-        console.error(err);
-        addMsg("Упс… не удалось отправить заявку. Пожалуйста, используйте классическую форму ниже.", "bot");
-        alert("Не удалось отправить в Telegram. Проверьте настройки сервера.");
-      }finally{
-        chatInput.disabled = false;
-      }
-    });
-
-    // CLASSIC FORM
-    const classicForm = document.getElementById("classicForm");
-    classicForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const payload = {
-        source: "site_classic_form",
-        name: document.getElementById("c_name").value.trim(),
-        contact: document.getElementById("c_contact").value.trim(),
-        company: document.getElementById("c_company").value.trim(),
-        goal: "Разработка / Диагностика",
-        pain: document.getElementById("c_message").value.trim(),
-        websiteOrBot: (document.getElementById("c_message").value.match(/https?:\/\/\S+/i) || [""])[0] || "",
-        budgetWillingToPay: document.getElementById("c_budget").value,
-        message: "Заполнено через классическую форму",
-        consent: true,
-        answers: []
-      };
-
-      const btn = classicForm.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = "Отправляю...";
-
-      try{
-        const r = await fetch(API_URL, {
-          method:"POST",
-          headers: {"Content-Type":"application/json"},
-          body: JSON.stringify(payload)
-        });
-        const data = await r.json();
-        if(!data.ok) throw new Error(data.error || "send failed");
+        const text = `🔥 <b>Новая заявка (Чат-бот)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Боль: ${answers[1]}\n🔗 Сайт/Бот: ${answers[2]}\n📱 Контакт: ${answers[3]}`;
         
-        showPopup();
-        classicForm.reset();
-      }catch(err){
-        console.error(err);
-        alert("Не удалось отправить. Проверьте соединение или попробуйте позже.");
-      }finally{
-        btn.disabled = false;
-        btn.textContent = originalText;
+        const success = await sendToTelegram(text);
+        
+        if (success) {
+          addMessage("Готово ✅ Я свяжусь с вами в ближайшее время!");
+          setTimeout(() => document.getElementById("popup").classList.add("show"), 1000);
+        } else {
+          addMessage("Упс, техническая заминка. Пожалуйста, заполните классическую форму ниже или напишите мне напрямую в Telegram.");
+          document.getElementById("chatInput").disabled = false;
+          document.querySelector("#chatForm button").disabled = false;
+        }
       }
+    }
+
+    document.getElementById("chatForm").addEventListener("submit", nextStep);
+    document.getElementById("chatInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") nextStep(e);
     });
 
-    // POPUP
-    function showPopup(){
-      document.getElementById("popup").classList.add("show");
-    }
-    function closePopup(){
+    // Старт бота
+    setTimeout(() => addMessage(questions[0]), 500);
+
+    // --- ЛОГИКА КЛАССИЧЕСКОЙ ФОРМЫ ---
+    document.getElementById("classicForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = "Отправляю...";
+      btn.disabled = true;
+
+      const name = document.getElementById("c_name").value.trim();
+      const contact = document.getElementById("c_contact").value.trim();
+      const company = document.getElementById("c_company").value.trim();
+      const budget = document.getElementById("c_budget").value;
+      const message = document.getElementById("c_message").value.trim();
+
+      const text = `🔥 <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n💬 Сообщение: ${message}`;
+
+      const success = await sendToTelegram(text);
+
+      if (success) {
+        document.getElementById("popup").classList.add("show");
+        this.reset();
+      } else {
+        alert("Не удалось отправить. Попробуйте ещё раз или напишите в Telegram.");
+      }
+      btn.textContent = "Отправить заявку";
+      btn.disabled = false;
+    });
+
+    function closePopup() {
       document.getElementById("popup").classList.remove("show");
     }
-    document.getElementById("popup").addEventListener("click", (e) => {
-      if(e.target.id === "popup") closePopup();
+    document.getElementById("popup").addEventListener("click", function(e) {
+      if (e.target.id === "popup") closePopup();
     });
-
-    function jumpToForm(){
-      document.getElementById("form").scrollIntoView({behavior:"smooth"});
-    }
-
-    // Инициализация бота при загрузке
-    startBot();
   </script>
 </body>
 </html>
-
-
-              <script>
-                              import express from "express";
-import fetch from "node-fetch";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const app = express();
-app.use(express.json({ limit: "1mb" }));
-
-// ========= НАСТРОЙКИ TELEGRAM =========
-const BOT_TOKEN = "8788227838:AAHxvmXEQ6C2rKfhl0e1cgdl1sn1eUUfAUk";
-const ADMIN_CHAT_ID = "6300678737"; 
-const PORT = process.env.PORT || 3000;
-// ======================================
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Раздача статических файлов из папки public
-app.use(express.static(path.join(__dirname, "public")));
-
-app.post("/api/lead", async (req, res) => {
-  try {
-    const {
-      source,
-      name,
-      contact,
-      company,
-      goal,
-      pain,
-      budgetWillingToPay,
-      websiteOrBot,
-      message,
-      consent,
-      answers
-    } = req.body || {};
-
-    const now = new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" });
-
-    // Формируем красивое сообщение для Кристины в Telegram
-    const text =
-      `🔥 <b>Новая заявка с сайта (Диагностика/Разработка)</b>\n` +
-      `🕒 Время: ${now}\n` +
-      `📍 Источник: ${source || "Не указан"}\n\n` +
-      `👤 <b>Имя:</b> ${name || "-"}\n` +
-      `📱 <b>Контакт:</b> ${contact || "-"}\n` +
-      `🏢 <b>Ниша/Роль:</b> ${company || "-"}\n\n` +
-      `🎯 <b>Цель:</b> ${goal || "-"}\n` +
-      `⚡ <b>Где болит:</b> ${pain || "-"}\n` +
-      `💸 <b>Бюджет/Формат:</b> ${budgetWillingToPay || "-"}\n` +
-      `🔗 <b>Сайт/Бот:</b> ${websiteOrBot || "-"}\n` +
-      `💬 <b>Важно для клиента:</b> ${message || "-"}\n\n` +
-      `📋 <b>Полные ответы анкеты:</b>\n${Array.isArray(answers) ? answers.map(a => `• ${a}`).join("\n") : "-" }\n\n` +
-      `✅ Согласие на связь: ${consent ? "Да" : "Нет"}`;
-
-    // Отправка в Telegram
-    const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    const tgRes = await fetch(telegramUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: ADMIN_CHAT_ID,
-        text,
-        parse_mode: "HTML",
-        disable_web_page_preview: false
-      })
-    });
-
-    if (!tgRes.ok) {
-      const err = await tgRes.text();
-      console.error("Telegram error:", err);
-      return res.status(502).json({ ok: false, error: "Telegram send failed" });
-    }
-
-    return res.json({ ok: true });
-  } catch (e) {
-    console.error("Server error:", e);
-    return res.status(500).json({ ok: false, error: "Server error" });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
-
-
-              </script>
-                        </body>
-                        </html>
-                    
