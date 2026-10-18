@@ -13,25 +13,19 @@
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
     
     :root {
-      /* Шоколадно-золотая палитра */
       --bg-primary: #1F1916;
       --bg-secondary: #2B2420;
       --bg-tertiary: #3D322C;
-      
       --gold-primary: #D4C4A8;
       --gold-light: #E8DFC8;
       --gold-dark: #B8A88A;
-      
       --text-primary: #F5F0E6;
       --text-secondary: #C9B8A0;
       --text-muted: #9A8B75;
-      
       --border-color: rgba(212, 196, 168, 0.2);
       --border-hover: rgba(212, 196, 168, 0.5);
-      
       --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
       --shadow-gold: 0 10px 40px rgba(212, 196, 168, 0.15);
-      
       --radius: 4px;
       --max: 1200px;
     }
@@ -47,7 +41,6 @@
       overflow-x: hidden;
     }
     
-    /* ФОНОВАЯ ТЕКСТУРА */
     .bg-texture {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -69,20 +62,17 @@
       border-bottom: 1px solid var(--border-color);
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
-    
     .brand {
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px; font-weight: 700; letter-spacing: 0.15em;
       color: var(--gold-primary); text-transform: uppercase;
     }
-    
     .nav-links { display: flex; gap: 40px; }
     .nav-links a {
       font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--text-secondary); transition: 0.3s; font-weight: 500;
     }
     .nav-links a:hover { color: var(--gold-primary); }
-    
     .nav-toggle { display: none; background: none; border: none; color: var(--gold-primary); font-size: 24px; cursor: pointer; }
 
     /* КНОПКИ */
@@ -92,7 +82,6 @@
       font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
       font-weight: 600; transition: all 0.4s; cursor: pointer; border: none;
     }
-    
     .btn-gold {
       background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
       color: var(--bg-primary);
@@ -102,7 +91,6 @@
       transform: translateY(-3px);
       box-shadow: 0 15px 50px rgba(212, 196, 168, 0.3);
     }
-    
     .btn-outline {
       background: transparent;
       border: 1px solid var(--gold-primary);
@@ -113,98 +101,80 @@
       color: var(--bg-primary);
     }
 
-    /* HERO - НОВЫЙ ПОДХОД */
+    /* HERO - ПРОБЛЕМА И РЕШЕНИЕ */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
       padding: 160px 0 100px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
     }
     
-    .hero-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
+    .problem-box, .solution-box {
+      padding: 48px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      transition: 0.4s;
     }
     
-    .hero-subtitle {
+    .problem-box {
+      background: rgba(212, 196, 168, 0.05);
+      border: 1px solid rgba(212, 196, 168, 0.2);
+    }
+    .problem-box:hover {
+      border-color: rgba(212, 196, 168, 0.4);
+      transform: translateY(-4px);
+    }
+    .problem-box h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--gold-primary);
-      letter-spacing: 0.2em;
-      margin-bottom: 32px;
-      font-style: italic;
-    }
-    
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 32px;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
       color: var(--text-primary);
     }
-    
-    .hero-title span {
-      color: var(--gold-primary);
-      font-style: italic;
-    }
-    
-    .hero-description {
-      font-size: 17px;
+    .problem-box p {
       color: var(--text-secondary);
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto 48px;
-      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
     }
     
-    .hero-cta {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 80px;
+    .solution-box {
+      background: rgba(212, 196, 168, 0.08);
+      border: 1px solid rgba(212, 196, 168, 0.3);
+      box-shadow: var(--shadow-gold);
     }
-    
-    /* СТАТИСТИКА */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      padding-top: 60px;
-      border-top: 1px solid var(--border-color);
+    .solution-box:hover {
+      border-color: rgba(212, 196, 168, 0.5);
+      transform: translateY(-4px);
     }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-number {
+    .solution-box h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      font-weight: 700;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
       color: var(--gold-primary);
-      display: block;
-      margin-bottom: 8px;
+    }
+    .solution-box p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
     }
     
-    .stat-label {
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
 
     /* СЕКЦИИ */
-    section { padding: 120px 0; position: relative; }
-    
+    section { padding: 100px 0; position: relative; }
     .section-header {
       text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 60px;
     }
-    
     .section-label {
       font-family: 'Cormorant Garamond', serif;
       font-size: 16px;
@@ -213,15 +183,13 @@
       margin-bottom: 16px;
       font-style: italic;
     }
-    
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
+      font-size: 44px;
       font-weight: 400;
       color: var(--text-primary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    
     .section-subtitle {
       font-size: 17px;
       color: var(--text-secondary);
@@ -243,14 +211,13 @@
       box-shadow: var(--shadow-gold);
       transform: translateY(-5px);
     }
-    
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
     /* СЕРВИСЫ */
     .service-card {
       position: relative;
-      padding: 48px 40px;
+      padding: 40px;
     }
     .service-card::before {
       content: "";
@@ -262,12 +229,7 @@
       transition: 0.4s;
     }
     .service-card:hover::before { opacity: 1; }
-    
-    .service-icon {
-      font-size: 40px;
-      margin-bottom: 24px;
-    }
-    
+    .service-icon { font-size: 36px; margin-bottom: 20px; }
     .service-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px;
@@ -275,14 +237,12 @@
       margin-bottom: 16px;
       color: var(--gold-primary);
     }
-    
     .service-desc {
       color: var(--text-secondary);
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 20px;
     }
-    
     .service-price {
       font-size: 14px;
       color: var(--gold-dark);
@@ -292,27 +252,13 @@
     /* ДИАГНОСТИКА */
     .diagnostic-section {
       background: var(--bg-secondary);
-      position: relative;
-      overflow: hidden;
     }
-    .diagnostic-section::before {
-      content: "";
-      position: absolute;
-      top: -50%; right: -20%;
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(212, 196, 168, 0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    
     .diagnostic-box {
       background: var(--bg-tertiary);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       padding: 60px;
-      position: relative;
-      z-index: 1;
     }
-    
     .price-badge {
       display: inline-block;
       padding: 12px 32px;
@@ -324,29 +270,27 @@
       border-radius: var(--radius);
       margin-bottom: 32px;
     }
-    
     .features-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin: 40px 0;
     }
-    
     .feature-item {
       display: flex;
       gap: 16px;
       align-items: flex-start;
     }
-    
-    .feature-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-    }
-    
+    .feature-icon { font-size: 24px; flex-shrink: 0; }
     .feature-text {
       color: var(--text-secondary);
       font-size: 15px;
       line-height: 1.6;
+    }
+    .feature-text strong {
+      color: var(--gold-primary);
+      display: block;
+      margin-bottom: 4px;
     }
 
     /* ЧАТ */
@@ -366,6 +310,9 @@
       border-bottom: 1px solid var(--border-color);
       font-weight: 600;
       font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .chat-body {
       padding: 32px;
@@ -416,7 +363,6 @@
       border-color: var(--gold-primary);
     }
     textarea { min-height: 120px; resize: vertical; }
-    
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .field { margin-bottom: 24px; }
     label {
@@ -448,10 +394,7 @@
       transition: 0.3s;
     }
     .footer-links a:hover { color: var(--gold-primary); }
-    .footer-text {
-      color: var(--text-muted);
-      font-size: 13px;
-    }
+    .footer-text { color: var(--text-muted); font-size: 13px; }
 
     /* POPUP */
     .popup {
@@ -487,10 +430,9 @@
 
     /* АДАПТИВНОСТЬ */
     @media (max-width: 1024px) {
-      .hero-title { font-size: 48px; }
-      .stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
       .chat-container { grid-template-columns: 1fr; }
+      .problem-box h2, .solution-box h2 { font-size: 30px; }
     }
     
     @media (max-width: 768px) {
@@ -499,9 +441,9 @@
       .nav-inner .btn { display: none; }
       
       .hero { padding: 120px 0 60px; }
-      .hero-title { font-size: 36px; }
+      .problem-box, .solution-box { padding: 32px; }
+      .problem-box h2, .solution-box h2 { font-size: 26px; }
       .hero-cta { flex-direction: column; }
-      .stats { grid-template-columns: 1fr; gap: 24px; }
       
       section { padding: 80px 0; }
       .section-title { font-size: 36px; }
@@ -511,11 +453,12 @@
       .features-grid { grid-template-columns: 1fr; }
       
       .form-grid { grid-template-columns: 1fr; }
+      .chat { height: 480px; }
     }
     
     @media (max-width: 480px) {
       .wrap { padding: 0 20px; }
-      .hero-title { font-size: 28px; }
+      .problem-box h2, .solution-box h2 { font-size: 22px; }
       .btn { padding: 14px 28px; font-size: 12px; }
     }
   </style>
@@ -529,54 +472,74 @@
     <div class="wrap nav-inner">
       <div class="brand">Kristina</div>
       <nav class="nav-links" id="navLinks">
+        <a href="#problems">Проблемы</a>
         <a href="#services">Услуги</a>
         <a href="#diagnostic">Диагностика</a>
-        <a href="#about">Обо мне</a>
-        <a href="#contact">Контакты</a>
+        <a href="#bot">Анкета</a>
       </nav>
       <button class="nav-toggle" id="navToggle">☰</button>
-      <a class="btn btn-gold" href="#diagnostic">Рассчитать стоимость</a>
+      <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO - НОВЫЙ ПОДХОД: СРАЗУ ЦЕННОСТЬ -->
+    <!-- HERO - ПРОБЛЕМА И РЕШЕНИЕ -->
     <section class="hero">
       <div class="wrap">
-        <div class="hero-content">
-          <p class="hero-subtitle">Digital-решения для бизнеса</p>
-          <h1 class="hero-title">
-            Цифровые решения,<br>
-            <span>которые продают</span>
-          </h1>
-          <p class="hero-description">
-            Мультидисциплинарный специалист: разработка, тестирование, ИИ-инструменты и маркетинг. 
-            10 лет создаю инструменты, которые решают задачи бизнеса и приносят прибыль.
-          </p>
-          
-          <div class="hero-cta">
-            <a class="btn btn-gold" href="#calculator">Рассчитать стоимость проекта</a>
-            <a class="btn btn-outline" href="#services">Услуги</a>
+        <div class="hero-grid">
+          <div class="problem-box">
+            <h2>Ваш сайт не продаёт. Бот не работает. Клиенты уходят к конкурентам.</h2>
+            <p>Вы теряете деньги каждый день, пока ваш сайт просто «висит» в интернете. Посетители заходят и уходят, не оставив контакт. Ручная обработка заявок съедает часы вашего времени.</p>
           </div>
 
-          <!-- СТАТИСТИКА -->
-          <div class="stats">
-            <div class="stat-item">
-              <span class="stat-number">10</span>
-              <span class="stat-label">Лет опыта</span>
+          <div class="solution-box">
+            <h2>Автономная система продаж за 14 дней</h2>
+            <p>Сайт + чат-бот, которые автоматически квалифицируют лидов и приносят готовые заявки в Telegram 24/7. Без вашего участия. Без «красивых картинок», которые не продают.</p>
+            <div class="hero-cta">
+              <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
+              <a class="btn btn-outline" href="#services">Услуги</a>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">6</span>
-              <span class="stat-label">Лет в SMM</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">4</span>
-              <span class="stat-label">Года в разработке</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">Проектов</span>
-            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРОБЛЕМЫ -->
+    <section id="problems">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-label">Почему ваш бизнес теряет клиентов</p>
+          <h2 class="section-title">Проблемы, которые мы решаем</h2>
+          <p class="section-subtitle">Если вы узнаёте хотя бы одну из этих проблем — вам нужно решение, а не ещё один «красивый сайт»</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 16px; color: var(--gold-primary);">🔴 Сайт есть, заявок нет</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
+              Вы потратили деньги на разработку, но телефон молчит. Посетители заходят и уходят. Проблема не в трафике — проблема в том, что сайт не продаёт.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 16px; color: var(--gold-primary);">🔴 Бот не работает или бесит</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
+              Чат-бот отвечает шаблонными фразами. Клиенты злятся и уходят к конкурентам, которые отвечают мгновенно и по делу.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 16px; color: var(--gold-primary);">🔴 Ручная обработка заявок</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
+              Вы тратите часы на ответы в Direct и WhatsApp. Отвечаете не сразу — клиент уже ушёл. Нужна система, которая работает 24/7.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 16px; color: var(--gold-primary);">🔴 Конкуренты забирают клиентов</h3>
+            <p style="color:var(--text-secondary); line-height:1.7; font-size:15px;">
+              Пока вы думаете «может, потом», конкуренты уже внедрили бота, который автоматически записывает на консультацию и отправляет вам готовых клиентов.
+            </p>
           </div>
         </div>
       </div>
@@ -588,35 +551,35 @@
         <div class="section-header">
           <p class="section-label">Что я предлагаю</p>
           <h2 class="section-title">Услуги</h2>
-          <p class="section-subtitle">Каждый проект — это индивидуальное решение под ваши бизнес-задачи. Не просто «красиво», а так, чтобы инструмент продавал.</p>
+          <p class="section-subtitle">Каждый проект — это индивидуальное решение под ваши бизнес-задачи</p>
         </div>
 
         <div class="grid-3">
           <div class="card service-card">
-            <div class="service-icon"></div>
+            <div class="service-icon">💻</div>
             <h3 class="service-title">Сайт на Коде</h3>
-            <p class="service-desc">Индивидуальная разработка на чистом коде или фреймворках. Максимальная скорость, безопасность и уникальность дизайна.</p>
+            <p class="service-desc">Индивидуальная разработка на чистом коде. Максимальная скорость, безопасность и уникальность дизайна.</p>
             <div class="service-price">от 25 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">🛠️</div>
             <h3 class="service-title">Сайт на Tilda</h3>
-            <p class="service-desc">Быстрый запуск на платформе Tilda. Стильный дизайн, Zero Block, удобная админка для самостоятельного управления.</p>
+            <p class="service-desc">Быстрый запуск на Tilda. Стильный дизайн, Zero Block, удобная админка.</p>
             <div class="service-price">от 15 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon"></div>
             <h3 class="service-title">Интернет-магазины</h3>
-            <p class="service-desc">Полноценные магазины с корзиной, оплатой, личным кабинетом и интеграцией служб доставки.</p>
+            <p class="service-desc">Полноценные магазины с корзиной, оплатой, личным кабинетом и интеграцией доставки.</p>
             <div class="service-price">от 40 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">🤖</div>
             <h3 class="service-title">Веб-боты и AI-агенты</h3>
-            <p class="service-desc">Боты, встроенные прямо в сайт. Сбор лидов через формы, умные сценарии, AI-консультанты.</p>
+            <p class="service-desc">Боты, встроенные в сайт. Сбор лидов, умные сценарии, AI-консультанты.</p>
             <div class="service-price">от 15 000 ₽</div>
           </div>
 
@@ -628,9 +591,9 @@
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">📊</div>
+            <div class="service-icon"></div>
             <h3 class="service-title">Диагностика</h3>
-            <p class="service-desc">Аудит текущего проекта (сайт, бот, приложение) для выявления проблем и точек роста.</p>
+            <p class="service-desc">Аудит текущего проекта для выявления проблем и точек роста.</p>
             <div class="service-price">5 000 — 8 000 ₽</div>
           </div>
         </div>
@@ -643,7 +606,7 @@
         <div class="section-header">
           <p class="section-label">Начните с этого</p>
           <h2 class="section-title">Диагностическая консультация</h2>
-          <p class="section-subtitle">Не просто «красиво», а так, чтобы инструмент продавал и решал задачи бизнеса</p>
+          <p class="section-subtitle">Гибридный формат, который экономит ваше время и даёт максимальную пользу</p>
         </div>
 
         <div class="diagnostic-box">
@@ -655,102 +618,131 @@
           
           <div class="features-grid">
             <div class="feature-item">
-              <span class="feature-icon"></span>
+              <span class="feature-icon">📝</span>
               <div class="feature-text">
-                <strong style="color: var(--gold-primary); display: block; margin-bottom: 4px;">Текстовый отчёт</strong>
+                <strong>Текстовый отчёт</strong>
                 Детальный разбор с конкретными рекомендациями и пошаговым планом действий
               </div>
             </div>
             <div class="feature-item">
               <span class="feature-icon">📊</span>
               <div class="feature-text">
-                <strong style="color: var(--gold-primary); display: block; margin-bottom: 4px;">Презентация</strong>
+                <strong>Презентация</strong>
                 Наглядные материалы для команды и принятия решений
               </div>
             </div>
             <div class="feature-item">
               <span class="feature-icon">️</span>
               <div class="feature-text">
-                <strong style="color: var(--gold-primary); display: block; margin-bottom: 4px;">Голосовые сообщения</strong>
+                <strong>Голосовые сообщения</strong>
                 Персональные аудио-разборы с объяснениями
               </div>
             </div>
             <div class="feature-item">
               <span class="feature-icon">⚡</span>
               <div class="feature-text">
-                <strong style="color: var(--gold-primary); display: block; margin-bottom: 4px;">Экономия времени</strong>
+                <strong>Экономия времени</strong>
                 Готовое решение за 45 минут вместо часов поиска
               </div>
             </div>
           </div>
 
           <div style="text-align: center; margin-top: 40px;">
-            <a class="btn btn-gold" href="#contact" style="padding: 18px 48px; font-size: 14px;">Записаться на консультацию</a>
+            <a class="btn btn-gold" href="#bot" style="padding: 18px 48px; font-size: 14px;">Записаться на консультацию</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ОБО МНЕ -->
-    <section id="about">
-      <div class="wrap">
-        <div class="grid-2" style="align-items: center;">
-          <div>
-            <p class="section-label">Кто я</p>
-            <h2 class="section-title" style="text-align: left; margin-bottom: 32px;">
-              Мультидисциплинарный<br>специалист
-            </h2>
-            <div style="color: var(--text-secondary); line-height: 1.8; font-size: 16px;">
-              <p style="margin-bottom: 20px;">
-                Я — разработчик, тестировщик, маркетолог и эксперт по ИИ-инструментам. 
-                Работаю в digital-сфере 4 года, до этого 6 лет занималась SMM и маркетингом.
-              </p>
-              <p style="margin-bottom: 20px;">
-                Базовое профильное образование — автоматизированное тестирование ПО. 
-                Главный принцип: не просто «красиво», а так, чтобы инструмент продавал.
-              </p>
-              <p>
-                Каждый проект рассматриваю комплексно — от технической реализации 
-                до маркетинговой эффективности.
-              </p>
-            </div>
-          </div>
-          <div class="card" style="padding: 60px 40px; text-align: center;">
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 72px; color: var(--gold-primary); font-weight: 700; margin-bottom: 8px;">10</div>
-            <div style="color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 13px;">лет общего опыта</div>
-            <div style="margin: 40px 0; border-top: 1px solid var(--border-color);"></div>
-            <div style="font-family: 'Cormorant Garamond', serif; font-size: 72px; color: var(--gold-primary); font-weight: 700; margin-bottom: 8px;">50+</div>
-            <div style="color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 13px;">реализованных проектов</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- КОНТАКТЫ -->
-    <section id="contact">
+    <!-- ЧАТ-БОТ -->
+    <section id="bot">
       <div class="wrap">
         <div class="section-header">
-          <p class="section-label">Связаться</p>
-          <h2 class="section-title">Обсудить Проект</h2>
-          <p class="section-subtitle">Заполните форму, и я свяжусь с вами в ближайшее время для обсуждения деталей</p>
+          <p class="section-label">Экспресс-диагностика</p>
+          <h2 class="section-title">Ответьте на 7 вопросов</h2>
+          <p class="section-subtitle">Мы определим, какое решение вам нужно, и отправим персональные рекомендации в Telegram</p>
+        </div>
+
+        <div class="chat-container">
+          <div class="chat">
+            <div class="chat-header">
+              <span>AI-ассистент</span>
+              <span style="color:var(--text-muted); font-size:13px;" id="chatStepLabel">Шаг 1/7</span>
+            </div>
+            <div class="chat-body" id="chatBody"></div>
+            <div class="chat-footer">
+              <form id="chatForm" style="display:flex; gap:12px; width:100%;">
+                <input id="chatInput" type="text" autocomplete="off" placeholder="Введите ваш ответ..." required style="margin:0;" />
+                <button class="btn btn-gold" type="submit" style="padding:14px 24px;">→</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-bottom: 20px; color: var(--gold-primary);">Как это работает?</h3>
+            <ul style="list-style: none; color: var(--text-secondary); line-height: 2;">
+              <li>✓ Вы отвечаете на 7 простых вопросов (2 минуты)</li>
+              <li>✓ Мы определяем вашу главную проблему</li>
+              <li>✓ Я лично изучаю заявку и пишу вам в Telegram</li>
+              <li>✓ Вы получаете конкретное предложение</li>
+            </ul>
+            <div style="margin-top:32px; padding-top:32px; border-top:1px solid var(--border-color);">
+              <p style="color:var(--text-secondary); margin:0 0 16px; font-size:14px;">Не хотите чат? <a href="#form" style="color:var(--gold-primary); font-weight:600; text-decoration:underline;">Заполните форму ниже ↓</a></p>
+              <a class="btn btn-outline" href="https://t.me/neiro_contents" target="_blank" style="width:100%;">Читать Telegram-канал</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФОРМА -->
+    <section id="form">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-label">Классическая форма</p>
+          <h2 class="section-title">Оставить заявку</h2>
+          <p class="section-subtitle">Если не хотите проходить диагностику — просто заполните форму</p>
         </div>
 
         <div class="grid-2">
-          <div class="card" style="padding: 48px;">
-            <form id="contactForm">
-              <div class="field">
-                <label>Ваше имя</label>
-                <input type="text" required placeholder="Иван Иванов" />
+          <div class="card">
+            <form id="classicForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label>Как к вам обращаться?</label>
+                  <input id="c_name" type="text" required placeholder="Имя" />
+                </div>
+                <div class="field">
+                  <label>Telegram или WhatsApp</label>
+                  <input id="c_contact" type="text" required placeholder="@username или +7..." />
+                </div>
               </div>
-              <div class="field">
-                <label>Telegram или WhatsApp</label>
-                <input type="text" required placeholder="@username или +7..." />
+
+              <div class="form-grid">
+                <div class="field">
+                  <label>Ваша ниша / Что продаёте?</label>
+                  <input id="c_company" type="text" required placeholder="Например: услуги коуча" />
+                </div>
+                <div class="field">
+                  <label>Бюджет на решение</label>
+                  <select id="c_budget" required>
+                    <option value="">Выберите...</option>
+                    <option value="Диагностика 5000₽">Диагностика (5 000 ₽)</option>
+                    <option value="До 50 000 ₽">До 50 000 ₽</option>
+                    <option value="50 000 – 100 000 ₽">50 000 – 100 000 ₽</option>
+                    <option value="100 000 – 200 000 ₽">100 000 – 200 000 ₽</option>
+                    <option value="200 000+ ₽">200 000+ ₽</option>
+                    <option value="Нужен расчёт">Нужен расчёт</option>
+                  </select>
+                </div>
               </div>
+
               <div class="field">
-                <label>Описание проекта</label>
-                <textarea required placeholder="Расскажите о вашей задаче..."></textarea>
+                <label>Опишите вашу проблему + ссылка на текущий сайт/бот</label>
+                <textarea id="c_message" required placeholder="Например: сайт есть, но заявок нет..."></textarea>
               </div>
-              <button type="submit" class="btn btn-gold" style="width: 100%;">Отправить заявку</button>
+
+              <button class="btn btn-gold" type="submit" style="width:100%;">Отправить заявку</button>
             </form>
           </div>
 
@@ -767,8 +759,7 @@
             </div>
             <div style="padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius);">
               <p style="color: var(--text-secondary); font-style: italic; margin-bottom: 16px;">
-                «Работа начинается с диагностики, а не с продажи. Дерзко против хаоса, 
-                но с уважением к вашему бизнесу.»
+                «Работа начинается с диагностики, а не с продажи. Дерзко против хаоса, но с уважением к вашему бизнесу.»
               </p>
               <div style="color: var(--gold-primary); font-weight: 600;">— Кристина</div>
             </div>
@@ -785,7 +776,7 @@
         <a href="https://t.me/neiro_contents" target="_blank">Telegram-канал</a>
         <a href="#services">Услуги</a>
         <a href="#diagnostic">Диагностика</a>
-        <a href="#contact">Контакты</a>
+        <a href="#bot">Анкета</a>
       </div>
       <div class="footer-text">© 2026 Kristina Digital. Все права защищены.</div>
     </div>
@@ -801,6 +792,28 @@
   </div>
 
   <script>
+    // Telegram данные
+    const BOT_TOKEN = "8788227838:AAHxvmXEQ6C2rKfhl0e1cgdl1sn1eUUfAUk";
+    const CHAT_ID = "6300678737";
+
+    // Отправка в Telegram
+    async function sendToTelegram(text) {
+      const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      const formData = new FormData();
+      formData.append('chat_id', CHAT_ID);
+      formData.append('text', text);
+      formData.append('parse_mode', 'HTML');
+
+      try {
+        const response = await fetch(telegramUrl, { method: "POST", body: formData });
+        const data = await response.json();
+        return data.ok;
+      } catch (e) {
+        console.error('Telegram send error:', e);
+        return false;
+      }
+    }
+
     // Мобильное меню
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -808,15 +821,99 @@
       navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // Отправка формы
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // ЧАТ-БОТ (7 вопросов)
+    const questions = [
+      "Привет! Я помогу определить, какое решение вам нужно. Как к вам обращаться?",
+      "Отлично! Какая у вас сейчас главная проблема? (Нет заявок с сайта, бот не работает, ручная обработка, конкуренты забирают клиентов?)",
+      "Понял(а). Что вы продаёте? (Услуги, товары, обучение?)",
+      "Есть ли у вас уже сайт или чат-бот? (Пришлите ссылку или напишите «нет, с нуля»)",
+      "Сколько клиентов в месяц вы хотите получать через сайт/бота?",
+      "Какой бюджет вы готовы выделить на решение? (Диагностика 5000₽ / До 50к / 50-100к / 100-200к / 200к+ / Нужен расчёт)",
+      "И последнее: оставьте ваш Telegram или WhatsApp, чтобы я могла прислать персональные рекомендации и связаться."
+    ];
+    
+    let step = 0;
+    let answers = [];
+
+    function addMessage(text, isMe = false) {
+      const chatBody = document.getElementById("chatBody");
+      const div = document.createElement("div");
+      div.className = "bubble " + (isMe ? "user" : "bot");
+      div.textContent = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+      document.getElementById("chatStepLabel").textContent = `Шаг ${Math.min(step + 1, questions.length)}/${questions.length}`;
+    }
+
+    async function nextStep(e) {
+      if(e) e.preventDefault();
+      const input = document.getElementById("chatInput");
+      const val = input.value.trim();
+      if (!val) return;
+
+      addMessage(val, true);
+      answers.push(val);
+      input.value = "";
+      step++;
+
+      if (step < questions.length) {
+        setTimeout(() => addMessage(questions[step]), 600);
+      } else {
+        addMessage("Отлично! Формирую резюме и отправляю в Telegram...");
+        document.getElementById("chatInput").disabled = true;
+        document.querySelector("#chatForm button").disabled = true;
+
+        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Проблема: ${answers[1]}\n🛍️ Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n Контакт: ${answers[6]}`;
+        
+        const success = await sendToTelegram(text);
+        
+        if (success) {
+          addMessage("Готово ✅ Я свяжусь с вами в течение часа с конкретным предложением!");
+          setTimeout(() => document.getElementById("popup").classList.add("show"), 1000);
+        } else {
+          addMessage("Упс, техническая заминка. Пожалуйста, заполните классическую форму ниже.");
+          document.getElementById("chatInput").disabled = false;
+          document.querySelector("#chatForm button").disabled = false;
+        }
+      }
+    }
+
+    document.getElementById("chatForm").addEventListener("submit", nextStep);
+    document.getElementById("chatInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") nextStep(e);
+    });
+
+    setTimeout(() => addMessage(questions[0]), 500);
+
+    // КЛАССИЧЕСКАЯ ФОРМА
+    document.getElementById("classicForm").addEventListener("submit", async function(e) {
       e.preventDefault();
-      document.getElementById('popup').classList.add('show');
-      this.reset();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = "Отправляю...";
+      btn.disabled = true;
+
+      const name = document.getElementById("c_name").value.trim();
+      const contact = document.getElementById("c_contact").value.trim();
+      const company = document.getElementById("c_company").value.trim();
+      const budget = document.getElementById("c_budget").value;
+      const message = document.getElementById("c_message").value.trim();
+
+      const text = ` <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n Проблема: ${message}`;
+
+      const success = await sendToTelegram(text);
+
+      if (success) {
+        document.getElementById("popup").classList.add("show");
+        this.reset();
+      } else {
+        alert("Не удалось отправить. Попробуйте ещё раз.");
+      }
+      btn.textContent = "Отправить заявку";
+      btn.disabled = false;
     });
 
     function closePopup() {
-      document.getElementById('popup').classList.remove('show');
+      document.getElementById("popup").classList.remove("show");
     }
 
     // Плавный скролл
@@ -826,6 +923,7 @@
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          navLinks.style.display = 'none';
         }
       });
     });
