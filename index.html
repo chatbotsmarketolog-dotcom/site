@@ -4,28 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
   
-  <!-- SEO -->
   <title>Кристина Digital | Сайты и чат-боты, которые продают</title>
   <meta name="description" content="Мультидисциплинарный специалист: разработка, тестирование, ИИ-инструменты и маркетинг. 10 лет создаю инструменты, которые решают задачи бизнеса." />
-  <meta name="keywords" content="создание сайтов, чат-боты, AI-агенты, автоматизация, digital-маркетинг" />
   
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
     
     :root {
-      --bg-primary: #1F1916;
-      --bg-secondary: #2B2420;
-      --bg-tertiary: #3D322C;
-      --gold-primary: #D4C4A8;
-      --gold-light: #E8DFC8;
-      --gold-dark: #B8A88A;
-      --text-primary: #F5F0E6;
-      --text-secondary: #C9B8A0;
-      --text-muted: #9A8B75;
-      --border-color: rgba(212, 196, 168, 0.2);
-      --border-hover: rgba(212, 196, 168, 0.5);
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      --shadow-gold: 0 10px 40px rgba(212, 196, 168, 0.15);
+      /* Насыщенная шоколадно-золотая палитра */
+      --bg-primary: #1A1410;
+      --bg-secondary: #2A1F18;
+      --bg-tertiary: #3D2E24;
+      
+      --gold-primary: #E5D5A8;
+      --gold-light: #F5E8C8;
+      --gold-dark: #C9A96E;
+      --gold-accent: #D4AF37;
+      
+      --text-primary: #FFF8EC;
+      --text-secondary: #D4C4A8;
+      --text-muted: #A89478;
+      
+      --border-color: rgba(229, 213, 168, 0.25);
+      --border-hover: rgba(229, 213, 168, 0.6);
+      
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      --shadow-gold: 0 10px 40px rgba(212, 175, 55, 0.25);
+      
       --radius: 4px;
       --max: 1200px;
     }
@@ -45,8 +50,8 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image: 
-        radial-gradient(circle at 20% 50%, rgba(212, 196, 168, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(212, 196, 168, 0.03) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(229, 213, 168, 0.04) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
@@ -57,7 +62,7 @@
     /* НАВИГАЦИЯ */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(31, 25, 22, 0.95);
+      background: rgba(26, 20, 16, 0.95);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
     }
@@ -83,13 +88,13 @@
       font-weight: 600; transition: all 0.4s; cursor: pointer; border: none;
     }
     .btn-gold {
-      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
       color: var(--bg-primary);
       box-shadow: var(--shadow-gold);
     }
     .btn-gold:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(212, 196, 168, 0.3);
+      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
     }
     .btn-outline {
       background: transparent;
@@ -101,73 +106,46 @@
       color: var(--bg-primary);
     }
 
-    /* HERO - ПРОБЛЕМА И РЕШЕНИЕ */
+    /* HERO - РУКОПИСНЫЙ ТЕКСТ ПО ЦЕНТРУ */
     .hero {
-      padding: 160px 0 100px;
-      position: relative;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      min-height: 100vh;
+      display: flex;
       align-items: center;
-    }
-    
-    .problem-box, .solution-box {
-      padding: 48px;
-      border-radius: var(--radius);
+      justify-content: center;
       position: relative;
-      overflow: hidden;
-      transition: 0.4s;
+      padding: 120px 0 80px;
     }
     
-    .problem-box {
-      background: rgba(212, 196, 168, 0.05);
-      border: 1px solid rgba(212, 196, 168, 0.2);
-    }
-    .problem-box:hover {
-      border-color: rgba(212, 196, 168, 0.4);
-      transform: translateY(-4px);
-    }
-    .problem-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      color: var(--text-primary);
-    }
-    .problem-box p {
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.7;
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
     
-    .solution-box {
-      background: rgba(212, 196, 168, 0.08);
-      border: 1px solid rgba(212, 196, 168, 0.3);
-      box-shadow: var(--shadow-gold);
+    .hero-handwritten {
+      font-family: 'Caveat', cursive;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 32px;
+      text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
     }
-    .solution-box:hover {
-      border-color: rgba(212, 196, 168, 0.5);
-      transform: translateY(-4px);
-    }
-    .solution-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.2;
+    
+    .hero-handwritten span {
+      display: block;
+      font-size: 56px;
       color: var(--gold-primary);
     }
-    .solution-box p {
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
     
-    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--text-secondary);
+      letter-spacing: 0.1em;
+      margin-bottom: 48px;
+      font-style: italic;
+    }
 
     /* СЕКЦИИ */
     section { padding: 100px 0; position: relative; }
@@ -186,7 +164,7 @@
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 44px;
-      font-weight: 400;
+      font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 20px;
     }
@@ -214,6 +192,61 @@
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
+    /* ПРОБЛЕМЫ И РЕШЕНИЕ */
+    .problem-solution {
+      background: var(--bg-secondary);
+    }
+    .problem-box, .solution-box {
+      padding: 48px;
+      border-radius: var(--radius);
+      transition: 0.4s;
+    }
+    .problem-box {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .problem-box:hover {
+      border-color: rgba(212, 175, 55, 0.5);
+      transform: translateY(-4px);
+    }
+    .problem-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+    .problem-box p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .solution-box {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: var(--shadow-gold);
+    }
+    .solution-box:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      transform: translateY(-4px);
+    }
+    .solution-box h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--gold-primary);
+    }
+    .solution-box p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
+
     /* СЕРВИСЫ */
     .service-card {
       position: relative;
@@ -224,7 +257,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
       opacity: 0;
       transition: 0.4s;
     }
@@ -245,7 +278,7 @@
     }
     .service-price {
       font-size: 14px;
-      color: var(--gold-dark);
+      color: var(--gold-accent);
       font-weight: 600;
     }
 
@@ -262,7 +295,7 @@
     .price-badge {
       display: inline-block;
       padding: 12px 32px;
-      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
       color: var(--bg-primary);
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
@@ -336,7 +369,7 @@
       border: 1px solid var(--border-color);
     }
     .bubble.user {
-      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
       color: var(--bg-primary);
       align-self: flex-end;
     }
@@ -360,7 +393,7 @@
     }
     input:focus, textarea:focus, select:focus {
       outline: none;
-      border-color: var(--gold-primary);
+      border-color: var(--gold-accent);
     }
     textarea { min-height: 120px; resize: vertical; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -430,7 +463,8 @@
 
     /* АДАПТИВНОСТЬ */
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-handwritten { font-size: 56px; }
+      .hero-handwritten span { font-size: 44px; }
       .chat-container { grid-template-columns: 1fr; }
       .problem-box h2, .solution-box h2 { font-size: 30px; }
     }
@@ -440,14 +474,17 @@
       .nav-toggle { display: block; }
       .nav-inner .btn { display: none; }
       
-      .hero { padding: 120px 0 60px; }
-      .problem-box, .solution-box { padding: 32px; }
-      .problem-box h2, .solution-box h2 { font-size: 26px; }
-      .hero-cta { flex-direction: column; }
+      .hero { padding: 100px 0 60px; }
+      .hero-handwritten { font-size: 42px; }
+      .hero-handwritten span { font-size: 32px; }
       
       section { padding: 80px 0; }
       .section-title { font-size: 36px; }
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      
+      .problem-box, .solution-box { padding: 32px; }
+      .problem-box h2, .solution-box h2 { font-size: 26px; }
+      .hero-cta { flex-direction: column; }
       
       .diagnostic-box { padding: 40px 32px; }
       .features-grid { grid-template-columns: 1fr; }
@@ -458,7 +495,8 @@
     
     @media (max-width: 480px) {
       .wrap { padding: 0 20px; }
-      .problem-box h2, .solution-box h2 { font-size: 22px; }
+      .hero-handwritten { font-size: 36px; }
+      .hero-handwritten span { font-size: 28px; }
       .btn { padding: 14px 28px; font-size: 12px; }
     }
   </style>
@@ -483,34 +521,32 @@
   </header>
 
   <main>
-    <!-- HERO - ПРОБЛЕМА И РЕШЕНИЕ -->
+    <!-- HERO - РУКОПИСНЫЙ ТЕКСТ ПО ЦЕНТРУ -->
     <section class="hero">
       <div class="wrap">
-        <div class="hero-grid">
-          <div class="problem-box">
-            <h2>Ваш сайт не продаёт. Бот не работает. Клиенты уходят к конкурентам.</h2>
-            <p>Вы теряете деньги каждый день, пока ваш сайт просто «висит» в интернете. Посетители заходят и уходят, не оставив контакт. Ручная обработка заявок съедает часы вашего времени.</p>
-          </div>
-
-          <div class="solution-box">
-            <h2>Автономная система продаж за 14 дней</h2>
-            <p>Сайт + чат-бот, которые автоматически квалифицируют лидов и приносят готовые заявки в Telegram 24/7. Без вашего участия. Без «красивых картинок», которые не продают.</p>
-            <div class="hero-cta">
-              <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
-              <a class="btn btn-outline" href="#services">Услуги</a>
-            </div>
+        <div class="hero-content">
+          <h1 class="hero-handwritten">
+            Ищете решение<br>для вашей ниши?
+            <span>Вы в правильном месте</span>
+          </h1>
+          <p class="hero-subtitle">
+            Сайты, чат-боты и AI-агенты, которые реально приносят деньги
+          </p>
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
+            <a class="btn btn-outline" href="#services">Услуги</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ПРОБЛЕМЫ -->
+    <!-- ПРОБЛЕМЫ, КОТОРЫЕ МЫ РЕШАЕМ -->
     <section id="problems">
       <div class="wrap">
         <div class="section-header">
-          <p class="section-label">Почему ваш бизнес теряет клиентов</p>
-          <h2 class="section-title">Проблемы, которые мы решаем</h2>
-          <p class="section-subtitle">Если вы узнаёте хотя бы одну из этих проблем — вам нужно решение, а не ещё один «красивый сайт»</p>
+          <p class="section-label">Что мы решаем</p>
+          <h2 class="section-title">Какие проблемы мы решаем</h2>
+          <p class="section-subtitle">Если вы узнаёте хотя бы одну из этих ситуаций — мы знаем, как помочь</p>
         </div>
 
         <div class="grid-2">
@@ -549,7 +585,7 @@
     <section id="services">
       <div class="wrap">
         <div class="section-header">
-          <p class="section-label">Что я предлагаю</p>
+          <p class="section-label">Что мы предлагаем</p>
           <h2 class="section-title">Услуги</h2>
           <p class="section-subtitle">Каждый проект — это индивидуальное решение под ваши бизнес-задачи</p>
         </div>
@@ -570,14 +606,14 @@
           </div>
 
           <div class="card service-card">
-            <div class="service-icon"></div>
+            <div class="service-icon">🛒</div>
             <h3 class="service-title">Интернет-магазины</h3>
             <p class="service-desc">Полноценные магазины с корзиной, оплатой, личным кабинетом и интеграцией доставки.</p>
             <div class="service-price">от 40 000 ₽</div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon">🤖</div>
+            <div class="service-icon"></div>
             <h3 class="service-title">Веб-боты и AI-агенты</h3>
             <p class="service-desc">Боты, встроенные в сайт. Сбор лидов, умные сценарии, AI-консультанты.</p>
             <div class="service-price">от 15 000 ₽</div>
@@ -591,10 +627,36 @@
           </div>
 
           <div class="card service-card">
-            <div class="service-icon"></div>
+            <div class="service-icon">📊</div>
             <h3 class="service-title">Диагностика</h3>
             <p class="service-desc">Аудит текущего проекта для выявления проблем и точек роста.</p>
             <div class="service-price">5 000 — 8 000 ₽</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРОБЛЕМА → РЕШЕНИЕ -->
+    <section class="problem-solution">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-label">Ваша ситуация</p>
+          <h2 class="section-title">Проблема и решение</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="problem-box">
+            <h2>Ваш сайт не продаёт. Бот не работает. Клиенты уходят к конкурентам.</h2>
+            <p>Вы теряете деньги каждый день, пока ваш сайт просто «висит» в интернете. Посетители заходят и уходят, не оставив контакт. Ручная обработка заявок съедает часы вашего времени.</p>
+          </div>
+
+          <div class="solution-box">
+            <h2>Автономная система продаж за 14 дней</h2>
+            <p>Сайт + чат-бот, которые автоматически квалифицируют лидов и приносят готовые заявки в Telegram 24/7. Без вашего участия. Без «красивых картинок», которые не продают.</p>
+            <div class="hero-cta">
+              <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
+              <a class="btn btn-outline" href="#services">Услуги</a>
+            </div>
           </div>
         </div>
       </div>
@@ -632,7 +694,7 @@
               </div>
             </div>
             <div class="feature-item">
-              <span class="feature-icon">️</span>
+              <span class="feature-icon">🎙️</span>
               <div class="feature-text">
                 <strong>Голосовые сообщения</strong>
                 Персональные аудио-разборы с объяснениями
@@ -821,14 +883,14 @@
       navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // ЧАТ-БОТ (7 вопросов)
+    // ЧАТ-БОТ (7 вопросов) - объединённые вопросы
     const questions = [
       "Привет! Я помогу определить, какое решение вам нужно. Как к вам обращаться?",
-      "Отлично! Какая у вас сейчас главная проблема? (Нет заявок с сайта, бот не работает, ручная обработка, конкуренты забирают клиентов?)",
-      "Понял(а). Что вы продаёте? (Услуги, товары, обучение?)",
-      "Есть ли у вас уже сайт или чат-бот? (Пришлите ссылку или напишите «нет, с нуля»)",
+      "Есть ли у вас уже сайт или чат-бот, и какая сейчас главная проблема? (Пришлите ссылку или напишите «нет, с нуля» + опишите боль: нет заявок, бот не работает, ручная обработка, конкуренты забирают клиентов?)",
+      "Что вы продаёте? (Услуги, товары, обучение?)",
       "Сколько клиентов в месяц вы хотите получать через сайт/бота?",
       "Какой бюджет вы готовы выделить на решение? (Диагностика 5000₽ / До 50к / 50-100к / 100-200к / 200к+ / Нужен расчёт)",
+      "Что для вас принципиально важно в работе с подрядчиком? (Честность, прозрачность, глубина?)",
       "И последнее: оставьте ваш Telegram или WhatsApp, чтобы я могла прислать персональные рекомендации и связаться."
     ];
     
@@ -863,7 +925,7 @@
         document.getElementById("chatInput").disabled = true;
         document.querySelector("#chatForm button").disabled = true;
 
-        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n⚡ Проблема: ${answers[1]}\n🛍️ Что продаёт: ${answers[2]}\n🔗 Сайт/Бот: ${answers[3]}\n🎯 Желаемых клиентов: ${answers[4]}\n💸 Бюджет: ${answers[5]}\n Контакт: ${answers[6]}`;
+        const text = `🔥 <b>Новая заявка (Чат-бот, 7 вопросов)</b>\n\n👤 Имя: ${answers[0]}\n🔗 Сайт/Бот + Проблема: ${answers[1]}\n🛍️ Что продаёт: ${answers[2]}\n🎯 Желаемых клиентов: ${answers[3]}\n💸 Бюджет: ${answers[4]}\n Важно: ${answers[5]}\n Контакт: ${answers[6]}`;
         
         const success = await sendToTelegram(text);
         
@@ -898,7 +960,7 @@
       const budget = document.getElementById("c_budget").value;
       const message = document.getElementById("c_message").value.trim();
 
-      const text = ` <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n Проблема: ${message}`;
+      const text = ` <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n💬 Проблема: ${message}`;
 
       const success = await sendToTelegram(text);
 
