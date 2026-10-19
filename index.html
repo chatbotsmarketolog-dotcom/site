@@ -4,33 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
   
-  <title>Кристина Digital | Сайты и чат-боты, которые продают</title>
-  <meta name="description" content="Мультидисциплинарный специалист: разработка, тестирование, ИИ-инструменты и маркетинг. 10 лет создаю инструменты, которые решают задачи бизнеса." />
+  <!-- SEO: Оптимизированные Title и Description -->
+  <title>Заказать чат-бота и сайт на Tilda/коде | AI менеджер и автоматизация бизнеса</title>
+  <meta name="description" content="Хотите узнать, как получить заявки? Заказать сайт на коде или Tilda, создать ИИ бота и AI менеджера. Профессиональная диагностика сайта, блога и чат-бота. Автоматизация экспертности для психолога, юриста, риелтора и онлайн-школ." />
+  <meta name="keywords" content="заказать чат-бота, найти способы создания чат-бота, AI менеджер, ИИ бот, заказать сайт на коде, заказать сайт на Tilda, диагностика блога, диагностика сайта, диагностика чат-бота, как получить заявки, автоматизация экспертности, автоматизация для психолога, автоматизация для юриста, автоматизация для риелтора, автоматизация для коуча, автоматизация для онлайн-школы" />
+  <meta name="author" content="Кристина Digital" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yoursite.com/" />
+  
+  <!-- Open Graph для красивых ссылок в соцсетях -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Заказать чат-бота и сайт | AI менеджер и автоматизация" />
+  <meta property="og:description" content="Найдите способы создания чат-бота и закажите сайт на Tilda или коде. Диагностика и автоматизация экспертности." />
+  <meta property="og:locale" content="ru_RU" />
+
+  <!-- Schema.org: Микроразметка для Google и Яндекс -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Кристина Digital | Разработка сайтов и чат-ботов",
+    "description": "Помогаю найти способы создания чат-бота, заказать сайт на коде или Tilda. Провожу диагностика сайта, блога и чат-бота. Внедряю AI менеджер и ИИ бот для роста заявок.",
+    "url": "https://yoursite.com",
+    "priceRange": "5000-200000 RUB",
+    "areaServed": "RU",
+    "knowsAbout": ["Заказать чат-бота", "AI менеджер", "ИИ бот", "Заказать сайт на коде", "Заказать сайт на Tilda", "Диагностика сайта", "Автоматизация экспертности"],
+    "offers": {
+      "@type": "Offer",
+      "name": "Диагностика сайта и чат-бота",
+      "price": "5000",
+      "priceCurrency": "RUB"
+    }
+  }
+  </script>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
     
     :root {
-      /* Насыщенная шоколадно-золотая палитра */
       --bg-primary: #1A1410;
       --bg-secondary: #2A1F18;
       --bg-tertiary: #3D2E24;
-      
       --gold-primary: #E5D5A8;
       --gold-light: #F5E8C8;
       --gold-dark: #C9A96E;
       --gold-accent: #D4AF37;
-      
       --text-primary: #FFF8EC;
       --text-secondary: #D4C4A8;
       --text-muted: #A89478;
-      
       --border-color: rgba(229, 213, 168, 0.25);
       --border-hover: rgba(229, 213, 168, 0.6);
-      
       --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       --shadow-gold: 0 10px 40px rgba(212, 175, 55, 0.25);
-      
       --radius: 4px;
       --max: 1200px;
     }
@@ -47,452 +72,145 @@
     }
     
     .bg-texture {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(229, 213, 168, 0.04) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(229, 213, 168, 0.04) 0%, transparent 50%);
+      pointer-events: none; z-index: 0;
     }
     
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
 
-    /* НАВИГАЦИЯ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(26, 20, 16, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-color);
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26, 20, 16, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
-    .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px; font-weight: 700; letter-spacing: 0.15em;
-      color: var(--gold-primary); text-transform: uppercase;
-    }
+    .brand { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; letter-spacing: 0.15em; color: var(--gold-primary); text-transform: uppercase; }
     .nav-links { display: flex; gap: 40px; }
-    .nav-links a {
-      font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-secondary); transition: 0.3s; font-weight: 500;
-    }
+    .nav-links a { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); transition: 0.3s; font-weight: 500; }
     .nav-links a:hover { color: var(--gold-primary); }
     .nav-toggle { display: none; background: none; border: none; color: var(--gold-primary); font-size: 24px; cursor: pointer; }
 
-    /* КНОПКИ */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 16px 36px; border-radius: var(--radius);
-      font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
-      font-weight: 600; transition: all 0.4s; cursor: pointer; border: none;
-    }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-      color: var(--bg-primary);
-      box-shadow: var(--shadow-gold);
-    }
-    .btn-gold:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--gold-primary);
-      color: var(--gold-primary);
-    }
-    .btn-outline:hover {
-      background: var(--gold-primary);
-      color: var(--bg-primary);
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px; border-radius: var(--radius); font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; transition: all 0.4s; cursor: pointer; border: none; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%); color: var(--bg-primary); box-shadow: var(--shadow-gold); }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4); }
+    .btn-outline { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+    .btn-outline:hover { background: var(--gold-primary); color: var(--bg-primary); }
 
-    /* HERO - РУКОПИСНЫЙ ТЕКСТ ПО ЦЕНТРУ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 120px 0 80px;
-    }
-    
-    .hero-content {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .hero-handwritten {
-      font-family: 'Caveat', cursive;
-      font-size: 72px;
-      font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1.1;
-      margin-bottom: 32px;
-      text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
-    }
-    
-    .hero-handwritten span {
-      display: block;
-      font-size: 56px;
-      color: var(--gold-primary);
-    }
-    
-    .hero-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      color: var(--text-secondary);
-      letter-spacing: 0.1em;
-      margin-bottom: 48px;
-      font-style: italic;
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 120px 0 80px; }
+    .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
+    .hero-handwritten { font-family: 'Caveat', cursive; font-size: 72px; font-weight: 700; color: var(--gold-light); line-height: 1.1; margin-bottom: 32px; text-shadow: 0 2px 20px rgba(212, 175, 55, 0.3); }
+    .hero-handwritten span { display: block; font-size: 56px; color: var(--gold-primary); }
+    .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--text-secondary); letter-spacing: 0.1em; margin-bottom: 48px; font-style: italic; }
 
-    /* СЕКЦИИ */
     section { padding: 100px 0; position: relative; }
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .section-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      color: var(--gold-primary);
-      letter-spacing: 0.2em;
-      margin-bottom: 16px;
-      font-style: italic;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 44px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-    }
-    .section-subtitle {
-      font-size: 17px;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-label { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--gold-primary); letter-spacing: 0.2em; margin-bottom: 16px; font-style: italic; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; color: var(--text-primary); margin-bottom: 20px; }
+    .section-subtitle { font-size: 17px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
 
-    /* КАРТОЧКИ */
-    .card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 40px;
-      transition: 0.4s;
-    }
-    .card:hover {
-      border-color: var(--border-hover);
-      box-shadow: var(--shadow-gold);
-      transform: translateY(-5px);
-    }
+    .card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 40px; transition: 0.4s; }
+    .card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-gold); transform: translateY(-5px); }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
-    /* ПРОБЛЕМЫ И РЕШЕНИЕ */
-    .problem-solution {
-      background: var(--bg-secondary);
-    }
-    .problem-box, .solution-box {
-      padding: 48px;
-      border-radius: var(--radius);
-      transition: 0.4s;
-    }
-    .problem-box {
-      background: rgba(212, 175, 55, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    .problem-box:hover {
-      border-color: rgba(212, 175, 55, 0.5);
-      transform: translateY(-4px);
-    }
-    .problem-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      color: var(--text-primary);
-    }
-    .problem-box p {
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-    .solution-box {
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: var(--shadow-gold);
-    }
-    .solution-box:hover {
-      border-color: rgba(212, 175, 55, 0.6);
-      transform: translateY(-4px);
-    }
-    .solution-box h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.2;
-      color: var(--gold-primary);
-    }
-    .solution-box p {
-      color: var(--text-secondary);
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
+    .problem-solution { background: var(--bg-secondary); }
+    .problem-box, .solution-box { padding: 48px; border-radius: var(--radius); transition: 0.4s; }
+    .problem-box { background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.3); }
+    .problem-box:hover { border-color: rgba(212, 175, 55, 0.5); transform: translateY(-4px); }
+    .problem-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; margin-bottom: 20px; line-height: 1.2; color: var(--text-primary); }
+    .problem-box p { color: var(--text-secondary); font-size: 16px; line-height: 1.7; }
+    .solution-box { background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.4); box-shadow: var(--shadow-gold); }
+    .solution-box:hover { border-color: rgba(212, 175, 55, 0.6); transform: translateY(-4px); }
+    .solution-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; margin-bottom: 20px; line-height: 1.2; color: var(--gold-primary); }
+    .solution-box p { color: var(--text-secondary); font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
     .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
 
-    /* СЕРВИСЫ */
-    .service-card {
-      position: relative;
-      padding: 40px;
-    }
-    .service-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold-accent), transparent);
-      opacity: 0;
-      transition: 0.4s;
-    }
+    .service-card { position: relative; padding: 40px; }
+    .service-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); opacity: 0; transition: 0.4s; }
     .service-card:hover::before { opacity: 1; }
     .service-icon { font-size: 36px; margin-bottom: 20px; }
-    .service-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--gold-primary);
-    }
-    .service-desc {
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .service-price {
-      font-size: 14px;
-      color: var(--gold-accent);
-      font-weight: 600;
-    }
+    .service-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 16px; color: var(--gold-primary); }
+    .service-desc { color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+    .service-price { font-size: 14px; color: var(--gold-accent); font-weight: 600; }
 
-    /* ДИАГНОСТИКА */
-    .diagnostic-section {
-      background: var(--bg-secondary);
-    }
-    .diagnostic-box {
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 60px;
-    }
-    .price-badge {
+    .niche-tag {
       display: inline-block;
-      padding: 12px 32px;
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-      color: var(--bg-primary);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      border-radius: var(--radius);
-      margin-bottom: 32px;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin: 40px 0;
-    }
-    .feature-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .feature-icon { font-size: 24px; flex-shrink: 0; }
-    .feature-text {
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-    .feature-text strong {
+      padding: 8px 16px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-color);
+      border-radius: 99px;
       color: var(--gold-primary);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* ЧАТ */
-    .chat-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
-    .chat {
-      height: 560px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .chat-header {
-      padding: 24px 32px;
-      background: var(--bg-tertiary);
-      border-bottom: 1px solid var(--border-color);
-      font-weight: 600;
-      font-size: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .chat-body {
-      padding: 32px;
-      flex: 1;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .bubble {
-      max-width: 85%;
-      padding: 16px 20px;
-      border-radius: var(--radius);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .bubble.bot {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      align-self: flex-start;
-      border: 1px solid var(--border-color);
-    }
-    .bubble.user {
-      background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%);
-      color: var(--bg-primary);
-      align-self: flex-end;
-    }
-    .chat-footer {
-      padding: 24px 32px;
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      gap: 12px;
-    }
-    
-    input, textarea, select {
-      width: 100%;
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 500;
       transition: 0.3s;
+      text-align: center;
     }
-    input:focus, textarea:focus, select:focus {
-      outline: none;
+    .niche-tag:hover {
+      background: rgba(212, 175, 55, 0.2);
       border-color: var(--gold-accent);
     }
+
+    .diagnostic-section { background: var(--bg-secondary); }
+    .diagnostic-box { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 60px; }
+    .price-badge { display: inline-block; padding: 12px 32px; background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%); color: var(--bg-primary); font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; border-radius: var(--radius); margin-bottom: 32px; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 40px 0; }
+    .feature-item { display: flex; gap: 16px; align-items: flex-start; }
+    .feature-icon { font-size: 24px; flex-shrink: 0; }
+    .feature-text { color: var(--text-secondary); font-size: 15px; line-height: 1.6; }
+    .feature-text strong { color: var(--gold-primary); display: block; margin-bottom: 4px; }
+
+    .chat-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; }
+    .chat { height: 560px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden; }
+    .chat-header { padding: 24px 32px; background: var(--bg-tertiary); border-bottom: 1px solid var(--border-color); font-weight: 600; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+    .chat-body { padding: 32px; flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+    .bubble { max-width: 85%; padding: 16px 20px; border-radius: var(--radius); font-size: 15px; line-height: 1.5; }
+    .bubble.bot { background: var(--bg-tertiary); color: var(--text-primary); align-self: flex-start; border: 1px solid var(--border-color); }
+    .bubble.user { background: linear-gradient(135deg, var(--gold-accent) 0%, var(--gold-dark) 100%); color: var(--bg-primary); align-self: flex-end; }
+    .chat-footer { padding: 24px 32px; border-top: 1px solid var(--border-color); display: flex; gap: 12px; }
+    
+    input, textarea, select { width: 100%; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 14px 18px; color: var(--text-primary); font-family: inherit; font-size: 15px; transition: 0.3s; }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--gold-accent); }
     textarea { min-height: 120px; resize: vertical; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .field { margin-bottom: 24px; }
-    label {
-      display: block;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
+    label { display: block; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
 
-    /* FOOTER */
-    .footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-color);
-      padding: 60px 0;
-      text-align: center;
-    }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 24px;
-    }
-    .footer-links a {
-      color: var(--text-secondary);
-      font-size: 14px;
-      transition: 0.3s;
-    }
+    .footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 60px 0; text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-secondary); font-size: 14px; transition: 0.3s; }
     .footer-links a:hover { color: var(--gold-primary); }
     .footer-text { color: var(--text-muted); font-size: 13px; }
 
-    /* POPUP */
-    .popup {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      padding: 24px;
-    }
+    .popup { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); display: none; align-items: center; justify-content: center; z-index: 200; padding: 24px; }
     .popup.show { display: flex; }
-    .popup-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      padding: 48px;
-      max-width: 480px;
-      text-align: center;
-    }
-    .popup-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      margin-bottom: 16px;
-      color: var(--gold-primary);
-    }
-    .popup-card p {
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
+    .popup-card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 48px; max-width: 480px; text-align: center; }
+    .popup-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 16px; color: var(--gold-primary); }
+    .popup-card p { color: var(--text-secondary); margin-bottom: 32px; line-height: 1.6; }
 
-    /* АДАПТИВНОСТЬ */
     @media (max-width: 1024px) {
       .hero-handwritten { font-size: 56px; }
       .hero-handwritten span { font-size: 44px; }
       .chat-container { grid-template-columns: 1fr; }
       .problem-box h2, .solution-box h2 { font-size: 30px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
     }
-    
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-toggle { display: block; }
       .nav-inner .btn { display: none; }
-      
       .hero { padding: 100px 0 60px; }
       .hero-handwritten { font-size: 42px; }
       .hero-handwritten span { font-size: 32px; }
-      
       section { padding: 80px 0; }
       .section-title { font-size: 36px; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
       .problem-box, .solution-box { padding: 32px; }
       .problem-box h2, .solution-box h2 { font-size: 26px; }
       .hero-cta { flex-direction: column; }
-      
       .diagnostic-box { padding: 40px 32px; }
       .features-grid { grid-template-columns: 1fr; }
-      
       .form-grid { grid-template-columns: 1fr; }
       .chat { height: 480px; }
     }
-    
     @media (max-width: 480px) {
       .wrap { padding: 0 20px; }
       .hero-handwritten { font-size: 36px; }
@@ -505,13 +223,13 @@
 
   <div class="bg-texture"></div>
 
-  <!-- НАВИГАЦИЯ -->
   <header class="nav">
     <div class="wrap nav-inner">
       <div class="brand">Kristina</div>
       <nav class="nav-links" id="navLinks">
         <a href="#problems">Проблемы</a>
         <a href="#services">Услуги</a>
+        <a href="#niches">Ниши</a>
         <a href="#diagnostic">Диагностика</a>
         <a href="#bot">Анкета</a>
       </nav>
@@ -521,7 +239,6 @@
   </header>
 
   <main>
-    <!-- HERO - РУКОПИСНЫЙ ТЕКСТ ПО ЦЕНТРУ -->
     <section class="hero">
       <div class="wrap">
         <div class="hero-content">
@@ -530,7 +247,7 @@
             <span>Вы в правильном месте</span>
           </h1>
           <p class="hero-subtitle">
-            Сайты, чат-боты и AI-агенты, которые реально приносят деньги
+            Хотите узнать, как получить заявки? Заказать сайт на коде или Tilda, внедрить AI менеджер и ИИ бота для роста продаж.
           </p>
           <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
             <a class="btn btn-gold" href="#bot">Пройти диагностику</a>
@@ -540,7 +257,6 @@
       </div>
     </section>
 
-    <!-- ПРОБЛЕМЫ, КОТОРЫЕ МЫ РЕШАЕМ -->
     <section id="problems">
       <div class="wrap">
         <div class="section-header">
@@ -581,62 +297,86 @@
       </div>
     </section>
 
-    <!-- УСЛУГИ -->
     <section id="services">
       <div class="wrap">
         <div class="section-header">
           <p class="section-label">Что мы предлагаем</p>
-          <h2 class="section-title">Услуги</h2>
-          <p class="section-subtitle">Каждый проект — это индивидуальное решение под ваши бизнес-задачи</p>
+          <h2 class="section-title">Услуги: от сайта до AI менеджера</h2>
+          <p class="section-subtitle">Помогаем найти способы создания чат-бота и заказывать сайты, которые действительно приносят прибыль</p>
         </div>
 
         <div class="grid-3">
           <div class="card service-card">
             <div class="service-icon">💻</div>
-            <h3 class="service-title">Сайт на Коде</h3>
-            <p class="service-desc">Индивидуальная разработка на чистом коде. Максимальная скорость, безопасность и уникальность дизайна.</p>
+            <h3 class="service-title">Заказать сайт на коде</h3>
+            <p class="service-desc">Индивидуальная разработка на чистом коде. Максимальная скорость, безопасность и уникальность дизайна под ваши задачи.</p>
             <div class="service-price">от 25 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">🛠️</div>
-            <h3 class="service-title">Сайт на Tilda</h3>
-            <p class="service-desc">Быстрый запуск на Tilda. Стильный дизайн, Zero Block, удобная админка.</p>
+            <h3 class="service-title">Заказать сайт на Tilda</h3>
+            <p class="service-desc">Быстрый запуск на Tilda. Стильный дизайн, Zero Block, удобная админка для самостоятельного управления.</p>
             <div class="service-price">от 15 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">🛒</div>
             <h3 class="service-title">Интернет-магазины</h3>
-            <p class="service-desc">Полноценные магазины с корзиной, оплатой, личным кабинетом и интеграцией доставки.</p>
+            <p class="service-desc">Полноценные магазины с корзиной, оплатой, личным кабинетом и интеграцией служб доставки.</p>
             <div class="service-price">от 40 000 ₽</div>
           </div>
 
           <div class="card service-card">
-            <div class="service-icon"></div>
-            <h3 class="service-title">Веб-боты и AI-агенты</h3>
-            <p class="service-desc">Боты, встроенные в сайт. Сбор лидов, умные сценарии, AI-консультанты.</p>
+            <div class="service-icon">🤖</div>
+            <h3 class="service-title">ИИ бот и AI менеджер</h3>
+            <p class="service-desc">Умные веб-боты, встроенные в сайт. Сбор лидов, умные сценарии и автономная работа AI-консультанта 24/7.</p>
             <div class="service-price">от 15 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">💬</div>
-            <h3 class="service-title">Чат-боты в мессенджерах</h3>
-            <p class="service-desc">Автоматизация в Telegram, VK. Интеграция с CRM, рассылки, воронки продаж.</p>
+            <h3 class="service-title">Заказать чат-бота</h3>
+            <p class="service-desc">Автоматизация в Telegram и VK. Интеграция с CRM, умные рассылки и построение воронок продаж.</p>
             <div class="service-price">от 10 000 ₽</div>
           </div>
 
           <div class="card service-card">
             <div class="service-icon">📊</div>
-            <h3 class="service-title">Диагностика</h3>
-            <p class="service-desc">Аудит текущего проекта для выявления проблем и точек роста.</p>
+            <h3 class="service-title">Комплексная диагностика</h3>
+            <p class="service-desc">Профессиональная диагностика сайта, диагностика блога и диагностика чат-бота для выявления точек роста.</p>
             <div class="service-price">5 000 — 8 000 ₽</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ПРОБЛЕМА → РЕШЕНИЕ -->
+    <!-- НОВЫЙ SEO-БЛОК ДЛЯ НИШ -->
+    <section id="niches" style="background: var(--bg-secondary);">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="section-label">Специализация</p>
+          <h2 class="section-title">Автоматизация экспертности для вашей ниши</h2>
+          <p class="section-subtitle">Мы создаем решения, адаптированные под специфику вашего бизнеса. Никаких шаблонных подходов.</p>
+        </div>
+        
+        <div class="grid-4" style="text-align: center;">
+          <div class="niche-tag">Автоматизация для психолога</div>
+          <div class="niche-tag">Автоматизация для юриста</div>
+          <div class="niche-tag">Автоматизация для риелтора</div>
+          <div class="niche-tag">Автоматизация для коуча</div>
+          <div class="niche-tag">Автоматизация для онлайн-школы</div>
+          <div class="niche-tag">Автоматизация для фитнес-тренера</div>
+          <div class="niche-tag">Автоматизация для салона красоты</div>
+          <div class="niche-tag">Автоматизация для B2B-услуг</div>
+          <div class="niche-tag">Автоматизация для интернет-магазина</div>
+          <div class="niche-tag">Автоматизация для event-агентства</div>
+          <div class="niche-tag">Автоматизация для репетитора</div>
+          <div class="niche-tag">Автоматизация для дизайнера</div>
+        </div>
+      </div>
+    </section>
+
     <section class="problem-solution">
       <div class="wrap">
         <div class="section-header">
@@ -662,7 +402,6 @@
       </div>
     </section>
 
-            <!-- КЕЙС: PHOTOBOOSTMP -->
     <section id="case" style="background: var(--bg-secondary);">
       <div class="wrap">
         <div class="section-header">
@@ -672,7 +411,6 @@
         </div>
 
         <div class="grid-2">
-          <!-- Левая колонка: История и решение -->
           <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
             <div style="margin-bottom: 32px;">
               <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold-primary); margin-bottom: 16px;">Задача</h3>
@@ -693,7 +431,6 @@
             </a>
           </div>
 
-          <!-- Правая колонка: Результаты и цифры -->
           <div>
             <div class="card" style="margin-bottom: 24px; background: var(--bg-tertiary); border-color: var(--gold-accent);">
               <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
@@ -729,7 +466,6 @@
       </div>
     </section>
     
-    <!-- ДИАГНОСТИКА -->
     <section id="diagnostic" class="diagnostic-section">
       <div class="wrap">
         <div class="section-header">
@@ -783,7 +519,6 @@
       </div>
     </section>
 
-    <!-- ЧАТ-БОТ -->
     <section id="bot">
       <div class="wrap">
         <div class="section-header">
@@ -824,7 +559,6 @@
       </div>
     </section>
 
-    <!-- ФОРМА -->
     <section id="form">
       <div class="wrap">
         <div class="section-header">
@@ -850,7 +584,7 @@
               <div class="form-grid">
                 <div class="field">
                   <label>Ваша ниша / Что продаёте?</label>
-                  <input id="c_company" type="text" required placeholder="Например: услуги коуча" />
+                  <input id="c_company" type="text" required placeholder="Например: психолог, юрист, онлайн-школа" />
                 </div>
                 <div class="field">
                   <label>Бюджет на решение</label>
@@ -898,7 +632,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer-links">
@@ -911,7 +644,6 @@
     </div>
   </footer>
 
-  <!-- POPUP -->
   <div class="popup" id="popup">
     <div class="popup-card">
       <h3>Заявка отправлена</h3>
@@ -921,11 +653,9 @@
   </div>
 
   <script>
-    // Telegram данные
     const BOT_TOKEN = "8788227838:AAHxvmXEQ6C2rKfhl0e1cgdl1sn1eUUfAUk";
     const CHAT_ID = "6300678737";
 
-    // Отправка в Telegram
     async function sendToTelegram(text) {
       const telegramUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
       const formData = new FormData();
@@ -943,14 +673,12 @@
       }
     }
 
-    // Мобильное меню
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
     navToggle.addEventListener('click', () => {
       navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // ЧАТ-БОТ (7 вопросов) - объединённые вопросы
     const questions = [
       "Привет! Я помогу определить, какое решение вам нужно. Как к вам обращаться?",
       "Есть ли у вас уже сайт или чат-бот, и какая сейчас главная проблема? (Пришлите ссылку или напишите «нет, с нуля» + опишите боль: нет заявок, бот не работает, ручная обработка, конкуренты забирают клиентов?)",
@@ -1014,7 +742,6 @@
 
     setTimeout(() => addMessage(questions[0]), 500);
 
-    // КЛАССИЧЕСКАЯ ФОРМА
     document.getElementById("classicForm").addEventListener("submit", async function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
@@ -1027,7 +754,7 @@
       const budget = document.getElementById("c_budget").value;
       const message = document.getElementById("c_message").value.trim();
 
-      const text = ` <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n💬 Проблема: ${message}`;
+      const text = `🔥 <b>Новая заявка (Классическая форма)</b>\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Ниша: ${company}\n💸 Бюджет: ${budget}\n💬 Проблема: ${message}`;
 
       const success = await sendToTelegram(text);
 
@@ -1045,7 +772,6 @@
       document.getElementById("popup").classList.remove("show");
     }
 
-    // Плавный скролл
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
